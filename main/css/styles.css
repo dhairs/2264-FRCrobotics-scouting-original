@@ -1,0 +1,16 @@
+/* imports */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:700&display=swap');
+
+.title-heading {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+}
+.inline-centering {
+    text-align: center;
+}
+.display-area {
+    background-color: rgb(197, 197, 197);
+    max-width: device-width;
+    width: 300px;
+    display: inline-block;
+}

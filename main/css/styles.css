@@ -6,11 +6,16 @@
     font-family: 'Roboto Mono', monospace;
 }
 .inline-centering {
+    margin-top: 50px;
     text-align: center;
 }
 .display-area {
     background-color: rgb(197, 197, 197);
     max-width: device-width;
     width: 300px;
+    display: inline-block;
+}
+.server-status {
+    width: 50%;
     display: inline-block;
 }

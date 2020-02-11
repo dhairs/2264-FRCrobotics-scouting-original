@@ -14,6 +14,8 @@ nameRequest.onreadystatechange = function() {
         nameArray.push(nameRequestObj[i].nickname);
         console.log(nameArray);
       }
+
+
       // Make a container element for the list
     listContainer = document.createElement('div'),
     // Make the list
@@ -21,23 +23,24 @@ nameRequest.onreadystatechange = function() {
     // Set up a loop that goes through the items in listItems one at a time
     numberOfListItems = nameArray.length,
     listItem,
-    i;
+    e;
 
     // Add it to the page
     document.getElementsByTagName('body')[0].appendChild(listContainer);
     listContainer.appendChild(listElement);
 
-    for (i = 0; i < numberOfListItems; ++i) {
+    for (e = 0; e < numberOfListItems; ++e) {
         // create an item for each one
         listItem = document.createElement('li');
 
         // Add the item text
-        listItem.innerHTML = nameArray[i];
+        listItem.innerHTML = nameArray[e];
 
         // Add listItem to the listElement
-        listElement.appendChild(listItem);
+        listElement.appendChild();
 
     }
+}
 }
 
 nameRequest.open("GET", "https://www.thebluealliance.com/api/v3/teams/1", true);

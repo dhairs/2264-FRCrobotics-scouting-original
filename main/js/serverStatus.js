@@ -5,7 +5,7 @@ var serverStatus;
 
 serverStatusRequest.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    
+
     var serverRequest = JSON.parse(this.responseText);
 
     if(serverRequest.is_datafeed_down == false){
@@ -18,20 +18,6 @@ serverStatusRequest.onreadystatechange = function() {
     document.getElementById("server-status").innerHTML = serverStatus;
   }
 };
-
-nameRequest.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200){
-        
-        var nameRequestObj = JSON.parse(this.responseText); 
-
-        console.log(nameRequestObj.nickname);
-    }
-}
-
 serverStatusRequest.open("GET", "https://www.thebluealliance.com/api/v3/status", true);
 serverStatusRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
 serverStatusRequest.send();
-
-nameRequest.open("GET", "https://www.thebluealliance.com/api/v3/teams/1", true);
-nameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-nameRequest.send();

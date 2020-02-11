@@ -7,14 +7,18 @@ var serverStatus;
 
 nameRequest.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200){
+
         var nameArray = [];
         var nameRequestObj = JSON.parse(this.responseText);
         var i;
+
+
         for (i = 0; i < nameRequestObj.length; i++) {
-        console.log(nameRequestObj[i].nickname);
+
         nameArray.push(nameRequestObj[i].nickname);
+
       }
-      console.log(nameArray);
+
     }
 
 

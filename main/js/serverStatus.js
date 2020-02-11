@@ -1,5 +1,7 @@
 var serverStatusRequest = new XMLHttpRequest();
-var nameRequest = new XMLHttpRequest();
+// var nameRequest = new XMLHttpRequest();
+// var keyRequest = new XMLHttpRequest();
+
 
 var serverStatus;
 
@@ -8,7 +10,7 @@ serverStatusRequest.onreadystatechange = function() {
 
     var serverRequest = JSON.parse(this.responseText);
 
-    if(serverRequest.is_datafeed_down == false){
+    if(serverRequest.is_datafeed_down == false) {
         serverStatus = "Active";
         document.getElementById('server-status').style.backgroundColor = "rgb(50, 168, 82)";
     } else {

@@ -13,10 +13,10 @@ keyRequest.onreadystatechange = function() {
 
 
         for (a = 0; a < keyRequestObj.length; a++) {
-        console.log(keyRequestObj[a].key);
+        // console.log(keyRequestObj[a].key);
         keyArray.push(keyRequestObj[a].key);
       }
-      console.log(keyArray);
+      // console.log(keyArray);
     }
 }
 
@@ -26,8 +26,11 @@ ekeyRequest.onreadystatechange = function() {
 
         var ekeyRequestObj = JSON.parse(this.responseText);
         var team_key = keyArray[1];
-        console.log(ekeyRequestObj[1]);
+        var b;
 
+        for(b = 0; b < ekeyRequestObj.length; b++) {
+        console.log(ekeyRequestObj[b]);
+      }
     }
 }
 

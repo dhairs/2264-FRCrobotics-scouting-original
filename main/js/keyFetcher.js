@@ -47,36 +47,32 @@ ekeyRequest.onreadystatechange = function() {
         ekeyArray.push(ekeyRequestObj[b]);
 
       }
-        for(c = 0; c < 100; c++) {
-          enameRequest.open('GET', "https://www.thebluealliance.com/api/v3/event/" + ekeyArray[c] + "/simple", true);
-          enameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-          enameRequest.send();
-          // enameRequestObj = enameRequest.responseText
-          // console.log(enameRequestObj);
-
-          }
-        }
-
       }
-
-
+    }
+var b;
 enameRequest.onreadystatechange = function() {
-  if (enameRequest.readyState == 4 && enameRequest.status == 200) {
-    console.log("ok");
-    var enameRequestObj = enameRequest.responseText
-    console.log(enameRequestObj);
+    if (this.readyState == 4 && this.status == 200) {
 
-  }
+        var enameRequestObj = JSON.parse(this.responseText);
+        var c;
+
+        for(c = 0; c < enameRequestObj.length; c++) {
+
+        enameArray.push(enameRequestObj[c].name);
+        enameArray.push(enameRequestObj[c].key);
+      }
+      console.log(enameArray);
+    }
 }
 
 
 
 
-// enameRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/", true);
-// enameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-// enameRequest.send();
 
 
+enameRequest.open('GET', "https://www.thebluealliance.com/api/v3/events/2020", true);
+enameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+enameRequest.send();
 
 keyRequest.open("GET", "https://www.thebluealliance.com/api/v3/teams/1" , true);
 keyRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");

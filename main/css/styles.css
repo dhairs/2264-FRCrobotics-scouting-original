@@ -19,3 +19,19 @@
     width: 50%;
     display: inline-block;
 }
+li {
+  vertical-align: bottom;
+  height: 50px;
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+li:hover{
+  background-color: rgb(173, 173, 173);
+  text-shadow: 30px;
+}
+
+.list-teams {
+  vertical-align: middle;
+}

@@ -1,5 +1,6 @@
 /* imports */
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap');
 
 .title-heading {
     text-align: center;
@@ -19,8 +20,11 @@
     width: 50%;
     display: inline-block;
 }
+
+
 li {
-  vertical-align: bottom;
+  font-family: 'Source Sans Pro', sans-serif;
+  align-content: center;
   height: 50px;
   list-style: none;
   margin-top: 10px;
@@ -29,9 +33,4 @@ li {
 
 li:hover{
   background-color: rgb(173, 173, 173);
-  text-shadow: 30px;
-}
-
-.list-teams {
-  vertical-align: middle;
 }

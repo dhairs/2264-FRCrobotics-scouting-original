@@ -25,8 +25,6 @@ nameRequest.onreadystatechange = function() {
     document.getElementById('myItemList').appendChild(ul);
 
     nameArray.forEach(function (name) {
-        let div = document.createElement('div');
-        div.className = "list-div";
         let li = document.createElement('li');
         ul.appendChild(li);
 

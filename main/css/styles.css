@@ -47,7 +47,7 @@ img {
 
 }
 .inline-centering {
-    margin-top: 50px;
+    margin-top: 30px;
     width: auto;
     text-align: center;
 }
@@ -73,9 +73,9 @@ li {
   font-family: 'Source Sans Pro', sans-serif;
   align-content: center;
   text-align: center;
-  height: 50px;
+  height: 40px;
   list-style: none;
-  margin-top: 10px;
+  margin-top: `10px;
   margin-bottom: 10px;
 }
 

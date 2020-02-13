@@ -1,4 +1,3 @@
-
 var nameRequest = new XMLHttpRequest();
 
 var serverStatus;

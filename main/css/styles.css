@@ -14,12 +14,18 @@ body {
     width: auto;
     text-align: center;
 }
+.listStuff {
+  padding: 0;
+  margin:0;
+}
 .display-area {
     background-color: rgb(197, 197, 197);
     max-width: device-width;
     width: 300px;
     display: inline-block;
+        text-align: center;
 }
+
 .server-status {
     width: 50%;
     display: inline-block;

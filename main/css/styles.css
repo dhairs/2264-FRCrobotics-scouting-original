@@ -81,4 +81,5 @@ li {
 
 li:hover{
   background-color: rgb(204, 204, 204);
+  font-size: 25px;
 }

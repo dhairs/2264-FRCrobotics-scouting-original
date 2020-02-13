@@ -1,21 +1,47 @@
 /* imports */
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap');
 
+body {
+  width: device-width;
+}
 .title-heading {
     text-align: center;
     font-family: 'Roboto Mono', monospace;
 }
 .inline-centering {
     margin-top: 50px;
+    width: auto;
     text-align: center;
+}
+.listStuff {
+  padding: 0;
+  margin:0;
 }
 .display-area {
     background-color: rgb(197, 197, 197);
     max-width: device-width;
     width: 300px;
     display: inline-block;
+        text-align: center;
 }
+
 .server-status {
     width: 50%;
     display: inline-block;
+}
+
+
+li {
+  font-family: 'Source Sans Pro', sans-serif;
+  align-content: center;
+  text-align: center;
+  height: 50px;
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+li:hover{
+  background-color: rgb(204, 204, 204);
 }

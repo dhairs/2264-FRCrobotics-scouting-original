@@ -1,10 +1,7 @@
 var p;
 var nameRequest = new XMLHttpRequest();
 var nameArray = [];
-<<<<<<< HEAD
-=======
 ul = document.getElementById('list');
->>>>>>> 2f75f3e1f4b78745fe9e730eaff330526f032209
 
 
 
@@ -16,7 +13,7 @@ for(p=0; p < 10; p++) {
   nameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   nameRequest.send();
   nameRequest.onload = function() {
-  nameList();
+
         if (this.readyState == 4 && this.status == 200){
 
 

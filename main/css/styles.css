@@ -81,6 +81,10 @@ li {
   margin-bottom: 10px;
 }
 
+ul {
+    padding-left: 0px;
+}
+
 li:hover{
   background-color: rgb(204, 204, 204);
   font-size: 25px;

@@ -22,7 +22,7 @@ for(p=0; p < 10; p++) {
             var i;
 
             for (i = 0; i < nameRequestObj.length; i++) {
-
+//epicgamer
                 nameArray.push(nameRequestObj[i].nickname);
               }
 

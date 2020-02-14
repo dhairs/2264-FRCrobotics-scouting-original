@@ -1,8 +1,8 @@
 var p;
 var nameRequest = new XMLHttpRequest();
 var nameArray = [];
-ul = document.createElement('ul');
-document.getElementById('myItemList').appendChild(ul);
+ul = document.getElementById('list');
+
 
 
 
@@ -22,24 +22,21 @@ for(p=0; p < 10; p++) {
             var i;
 
             for (i = 0; i < nameRequestObj.length; i++) {
-//epicgamer
+                li = document.createElement('li');
+                ul.appendChild(li);
+                li.innerHTML += nameRequestObj[i].nickname;
+
                 nameArray.push(nameRequestObj[i].nickname);
+
               }
 
-            // nameArray.forEach(function (name) {
-            //     let li = document.createElement('li');
-            //     ul.classList.add('listStuff');
-            //     li.classList.toggle('inline-centering');
-            //     ul.appendChild(li);
-            //
-            //     li.innerHTML += name;
-            //     console.log(nameArray);
-            // });
+
         }
 
     }
 
 }
+
 
 // function listMake() {
 //   if(p == 10){

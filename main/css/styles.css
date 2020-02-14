@@ -7,11 +7,12 @@
 body {
   width: device-width;
   background-color: #000000;
-  background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
-  height: 100%;
+  background-image: linear-gradient(-45deg, rgb(235, 50, 50), #8ce23b, rgb(96, 44, 218), rgb(212, 46, 46));
+  background-size: 300% 300%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  animation: change 15s infinite;
 }
 html {
     height: 100%;
@@ -69,7 +70,8 @@ img {
 .massive {
   font-size: 20vw;
   font-family: 'Tomorrow', sans-serif;
-  color: rgb(255, 200, 0);
+  /* color: #ffc740; */
+  mix-blend-mode: difference;
 }
 
 .blank_space {
@@ -132,7 +134,7 @@ background-size: 550% 550%;
 position: relative;
 animation: change 8s ease-in-out infinite;
 }
-
+*/
 @keyframes change {
   0%{
       background-position: 0% 50%;
@@ -145,4 +147,4 @@ animation: change 8s ease-in-out infinite;
   }
 
 
-} */
+}

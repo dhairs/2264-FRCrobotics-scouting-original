@@ -1,8 +1,7 @@
 var p;
 var nameRequest = new XMLHttpRequest();
 var nameArray = [];
-ul = document.createElement('ul');
-document.getElementById('myItemList').appendChild(ul);
+
 
 
 
@@ -13,8 +12,9 @@ for(p=0; p < 10; p++) {
   nameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   nameRequest.send();
   nameRequest.onload = function() {
-
+  nameList();
         if (this.readyState == 4 && this.status == 200){
+
 
 
             var nameRequestObj = JSON.parse(this.responseText);
@@ -24,12 +24,8 @@ for(p=0; p < 10; p++) {
             for (i = 0; i < nameRequestObj.length; i++) {
 //epicgamer
                 nameArray.push(nameRequestObj[i].nickname);
-<<<<<<< HEAD
 
-          
-=======
               }
->>>>>>> 55518aedc7cbaf3ba801968b38d3c0378dedccb9
 
             // nameArray.forEach(function (name) {
             //     let li = document.createElement('li');

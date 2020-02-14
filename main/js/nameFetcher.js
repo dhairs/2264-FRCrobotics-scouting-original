@@ -24,7 +24,7 @@ for(p=0; p < 10; p++) {
             for (i = 0; i < nameRequestObj.length; i++) {
 
                 nameArray.push(nameRequestObj[i].nickname);
-              } 
+              }
 
             // nameArray.forEach(function (name) {
             //     let li = document.createElement('li');

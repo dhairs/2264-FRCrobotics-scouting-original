@@ -23,9 +23,9 @@ for(p=0; p < 10; p++) {
             var i;
 
             for (i = 0; i < nameRequestObj.length; i++) {
-                li = document.createElement('li');
-                ul.appendChild(li);
-                li.innerHTML += nameRequestObj[i].nickname;
+                // li = document.createElement('li');
+                // ul.appendChild(li);
+                // li.innerHTML += nameRequestObj[i].nickname;
 
                 nameArray.push(nameRequestObj[i].nickname);
 

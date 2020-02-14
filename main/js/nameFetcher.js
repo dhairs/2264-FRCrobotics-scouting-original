@@ -25,12 +25,7 @@ for(p=0; p < 10; p++) {
 
                 nameArray.push(nameRequestObj[i].nickname);
 
-            listMake();
-            }
-
-            if(p == 10) {
-              listMake();
-            }
+          
 
             // nameArray.forEach(function (name) {
             //     let li = document.createElement('li');

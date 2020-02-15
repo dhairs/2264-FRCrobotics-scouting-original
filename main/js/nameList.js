@@ -25,22 +25,29 @@ function teamList() {
         ul.classList.add('listStuff');
         li.classList.toggle('inline-centering');
         ul.appendChild(li);
-        li.innerHTML += name;
+        li.innerHTML = name;
         u++;
   });
 }
+var urlKey;
+var urlName;
 function checkParams(){
-  
+  var url = new URL(window.location.href);
   var listID = url.searchParams.get('listID');
   console.log(listID);
   if(listID != null){
-  makeList(listID);
+    // url.searchParams.get('eventName');
+    urlKey = eKeyArray.indexOf(listID);
+    urlName = eNameArray[urlKey];
+    document.getElementById('event-name').innerHTML = urlName;
+ 
+    makeList(listID);
   }
 }
 
 function makeList(x){
 
-  
+
 
   $('ul').empty()
   teamArray = [];

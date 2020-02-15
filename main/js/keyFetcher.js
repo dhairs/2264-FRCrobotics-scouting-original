@@ -46,13 +46,13 @@ eNameRequest.onreadystatechange = function() {
 
       }
 }
-
+var strUser;
 // Gets the event the user chose and forwards it to another function
 function sendEvent(){
    
     // Gets the form from HTML, saves input
     var e = document.getElementById("event-chosen");
-    var strUser = e.options[e.selectedIndex].text;
+    strUser = e.options[e.selectedIndex].text;
 
     // Finds the associated Event Key with the Event Num
     var currentEventNum = eNameArray.indexOf(strUser);
@@ -84,11 +84,13 @@ var url = new URL(window.location.href);
   let params = new URLSearchParams(url.search.slice(1));
 function makeRequest(x){
 
-  
+  params.delete('listID');
   params.set('listID', x);
+  params.set('eventName', strUser);
   window.history.replaceState({}, '', url +'?' + params);
   console.log(params.get('listID'))
   makeList(x);
+  checkParams();
   // var teamRequest = new XMLHttpRequest();
   // teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x , true);
   // teamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");

@@ -80,12 +80,14 @@ function nameList(){
     //   console.log(nameArray);
 }
 
-
+var url = new URL(window.location.href);
+  let params = new URLSearchParams(url.search.slice(1));
 function makeRequest(x){
 
-  var url = new URL(window.location.href);
-  let params = new URLSearchParams(url.search.slice(1));
+  
   params.set('listID', x);
+  window.history.replaceState({}, '', url +'?' + params);
+  console.log(params.get('listID'))
   makeList(x);
   // var teamRequest = new XMLHttpRequest();
   // teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x , true);

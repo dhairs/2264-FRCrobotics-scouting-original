@@ -1,9 +1,6 @@
 var eteamRequest = new XMLHttpRequest();
 let eNameRequest = new XMLHttpRequest();
 
-$("#prospects_form").submit(function(e) {
-    e.preventDefault();
-});
 
 var eKeyArray = [];
 var eNameArray = [];
@@ -14,7 +11,9 @@ var eNameRequestObj
 var currentEventKey;
 var currentEventNum;
 
-
+$("#prospects_form").submit(function(e) {
+    e.preventDefault();
+});
 
 // eNameRequest.onreadystatechange = function() {
 //
@@ -60,6 +59,7 @@ function sendEvent(){
   var currentEventKey = eKeyArray[currentEventNum];
   console.log(currentEventKey);
   makeRequest(currentEventKey);
+  return false;
 }
 
 function nameList(){

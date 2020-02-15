@@ -15,17 +15,18 @@ function teamList() {
 
 
         // Add the ul to the list
-        document.getElementById('myItemList').appendChild(ul);
+        var table = document.getElementById('table-items')
 
         // Get the specific team name from the array
         name = teamArray[u];
 
         // Make an li
-        let li = document.createElement('li');
-        ul.classList.add('listStuff');
-        li.classList.toggle('inline-centering');
-        ul.appendChild(li);
-        li.innerHTML = name;
+        let tr = document.createElement('tr');
+        tr.classList.toggle('inline-centering');
+
+        table.appendChild(tr);
+
+        tr.innerHTML = name;
         u++;
   });
 }

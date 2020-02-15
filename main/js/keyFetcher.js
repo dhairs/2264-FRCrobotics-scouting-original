@@ -12,6 +12,7 @@ var eNameRequestObj
 var currentEventKey;
 var currentEventNum;
 var b;
+// var Table = document.getElementById("list-items");
 
 
 // To work on IOS
@@ -49,10 +50,14 @@ eNameRequest.onreadystatechange = function() {
 var strUser;
 // Gets the event the user chose and forwards it to another function
 function sendEvent(){
-   params.delete('listID');
+    params.delete('listID');
     // Gets the form from HTML, saves input
     var e = document.getElementById("event-chosen");
+
     strUser = e.options[e.selectedIndex].text;
+
+    $("#table-items tr").remove(); 
+    // document.getElementById("table-items").deleteRow(1);
 
     // Finds the associated Event Key with the Event Num
     var currentEventNum = eNameArray.indexOf(strUser);

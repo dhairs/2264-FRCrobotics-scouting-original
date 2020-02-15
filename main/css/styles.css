@@ -89,7 +89,7 @@ img {
   font-size: 20vw;
   font-family: 'Tomorrow', sans-serif;
   /* color: #ffc740; */
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
 }
 
 .blank_space {

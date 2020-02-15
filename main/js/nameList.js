@@ -2,23 +2,25 @@
 var name;
 var u = 0;
 var teamArray = [];
-
+var frcID;
 var url = new URL(window.location.href);
+var tKeyArray = [];
 // Takes TeamArray items and puts them onto the site
 function teamList() {
     u = 0;
 
     ul = document.createElement('ul');
     
-    // For Each item in the Team Array, make an li
+    // For Each item in the Team Array, make an table row
     teamArray.forEach(function () {
-
+        $('.table').hide();
         $('.table').fadeIn(2000);
-        // Add the ul to the list
+        // Add the tr to the table
         var table = document.getElementById('table-items')
 
         // Get the specific team name from the array
         name = teamArray[u];
+        key = tKeyArray[u];
 
         // Make an li
         let tr = document.createElement('tr');
@@ -31,7 +33,7 @@ function teamList() {
         tr.appendChild(teamNamesTableVals);
         tr.appendChild(teamScores);
         teamNamesTableVals.innerHTML = name;
-        teamScores.innerHTML = u.toString();
+        teamScores.innerHTML = key;
         u++;
   });
 }
@@ -52,9 +54,6 @@ function checkParams(){
 }
 
 function makeList(x){
-
-
-
   $('ul').empty()
   teamArray = [];
   var teamRequest = new XMLHttpRequest();
@@ -68,8 +67,8 @@ function makeList(x){
           var a;
 
           for (a = 0; a < teamRequestObj.length; a++) {
-
             teamArray.push(teamRequestObj[a].nickname);
+            tKeyArray.push(teamRequestObj[a].team_number);
         }
         teamList();
 

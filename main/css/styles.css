@@ -98,7 +98,7 @@ img {
 .table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 85%;
 }
 
 .table td, .table th {
@@ -158,10 +158,13 @@ img {
 
 .inline-centering {
     margin-top: 30px;
-    text-align: center;
+    /* text-align: center; */
 }
 
-
+.theader {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
+}
 
 .server-status {
     width: 50%;

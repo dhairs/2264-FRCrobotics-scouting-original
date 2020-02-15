@@ -60,7 +60,6 @@ img {
 .header {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.4);
-  text-align: center;
 }
 
 .header a {
@@ -142,6 +141,11 @@ img {
 li:hover{
   background-color: rgb(204, 204, 204);
   font-size: 25px;
+}
+
+.center-header {
+  position: relative;
+  margin-left: 46%;
 }
 
 

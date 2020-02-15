@@ -2,55 +2,45 @@
 <html>
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Scouting</title>
 
+        <title>Scouting</title>
+        <!-- Imports -->
         <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
         <script src="js/nameList.js"></script>
         <script src="js/serverStatus.js"></script>
         <script src="js/nameFetcher.js"></script>
         <script src="js/keyFetcher.js"></script>
         <script src="js/jStyles.js"></script>
-
     </head>
 
     <body>
-      <div class="header">
-          <a href="https://wayzatarobotics2264.com/our-team-page/" class="logo"><img src="https://wayzatarobotics2264.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-11-at-9.10.43-AM-1.png"</img></a>
-            <!--  -->
-    </div>
-          <!-- <header>
-            <a href="https://wayzatarobotics2264.com/our-team-page/">
-               <img class = "logo" src = "https://wayzatarobotics2264.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-11-at-9.10.43-AM-1.png" alt= "logo">
-            </a>
-            <h1 class="title-heading"> <a href="https://wayzatarobotics2264.com/our-team-page/" style="text-decoration: none; color: #000000 !important">FRC Scouting</a></h1>
-          </header> -->
+        <div class="header">
+          <!-- Logo -->
+            <a href="https://wayzatarobotics2264.com/our-team-page/" class="logo"><img src="https://wayzatarobotics2264.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-11-at-9.10.43-AM-1.png"</img></a>
+        </div>
         <div class="inline-centering">
-          <div class = "blank_space">
-          </div>
-            <!-- <div class="display-area"> -->
+
+            <div class = "blank_space">
+            </div>
+
             <div class="massive-container">
-            <a class="massive"> Scouting </a>
-                <!-- <h2>Server Status:</h2>
-                <h3 class="server-status" id="server-status"></h3> -->
-            <!-- </div> -->
-          </div>
-  <form onsubmit="return false;">
-  <!-- <label for="events">Choose Event:</label> -->
-  <select class = "Medium" id="event-chosen">
-    <option> Choose an Event:</option>
-</select>
-  <input type="submit" onclick="sendEvent()">
-</form>
+                <a class="massive"> Scouting </a>
+            </div>
+              <!-- Form and Button -->
+            <form onsubmit="return false;">
+                <select class = "Medium" id="event-chosen">
+                    <option> Choose an Event:</option>
+                  </select>
+                <input type="submit" onclick="sendEvent()">
+            </form>
+              <!-- List -->
             <div class="list-teams" id="myItemList">
 
-                <ul class="listStuff, inline-centering" id="list">
+                  <ul class="listStuff, inline-centering" id="list">
+                  </ul>
 
-
-                </ul>
             </div>
         </div>
-
-
 
     </body>
     <link rel="stylesheet" type="text/css" href="css/styles.css">

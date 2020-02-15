@@ -5,25 +5,27 @@
 @import url('https://fonts.googleapis.com/css?family=Tomorrow&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 
+html {
+    height: 100%;
+}
+
 body {
+  /* General */
   width: device-width;
-  /* background-color: #000000;
-  background-image: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(215,255,0,1) 0%, rgba(0,212,255,1) 100%);
-  background-size: 300% 300%; */
   margin: 0;
+
+  /* Background Gradient */
   background-repeat: no-repeat;
-  /* background-attachment: fixed;
-  animation: change 15s infinite; */
   background: linear-gradient(320deg, #adf006, #072cc3);
   background-size: 400% 400%;
-
+  /* Animation */
   -webkit-animation: AnimationName 10s ease infinite;
   -moz-animation: AnimationName 10s ease infinite;
   animation: AnimationName 10s ease infinite;
-
-
 }
 
+
+/* Everything Forms */
 form {
   margin-top: 20px;
 }
@@ -38,16 +40,17 @@ option {
   font-family: 'Abel', sans-serif;
   font-size: 1.5vw;
 }
-html {
-    height: 100%;
+
+img {
+  width: 70px;
+  height: 70px;
+  float: left;
 }
 
-.Medium {
-  height: 4vw;
-}
 
+/* CLASSES */
 
-
+/* Header Classes */
 
 .header {
   overflow: hidden;
@@ -57,7 +60,6 @@ html {
 .header a {
   float: left;
   text-align: center;
-  /* padding: 12px; */
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
@@ -67,7 +69,6 @@ html {
   font-size: 25px;
   font-weight: bold;
 }
-
 
 .header-right {
   float: right;
@@ -81,23 +82,20 @@ html {
   }
 
   .header-right {
-float: left;
+    float: left;
   }
 }
 
+/* More Classes */
 
-
-img {
-  width: 70px;
-  height: 70px;
-  float: left;
+.Medium {
+  height: 4vw;
 }
+
 
 .massive {
   font-size: 20vw;
   font-family: 'Tomorrow', sans-serif;
-  /* color: #ffc740; */
-  /* mix-blend-mode: difference; */
 }
 
 .blank_space {
@@ -121,47 +119,19 @@ img {
   padding: 0;
   margin:0;
 }
-/* .display-area {
-    background-color: rgb(197, 197, 197);
-    max-width: device-width;
-    width: 50%;
-    display: inline-block;
-    text-align: center;
-} */
 
 .server-status {
     width: 50%;
     display: inline-block;
 }
 
-
-/* li {
-  font-family: 'Source Sans Pro', sans-serif;
-  align-content: center;
-  text-align: center;
-  height: 40px;
-  list-style: none;
-  margin-top: `10px;
-  margin-bottom: 10px;
-}
-
-ul {
-    padding-left: 0px;
-} */
-
 li:hover{
   background-color: rgb(204, 204, 204);
   font-size: 25px;
 }
 
-/* body {
-  background: repeating-linear-gradient(-45deg, rgb(235, 50, 50), #8ce23b, rgb(96, 44, 218), rgb(212, 46, 46));
-background-size: 550% 550%;
-position: relative;
-animation: change 8s ease-in-out infinite;
-}
-*/
 
+/* More Animation Stuff */
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}

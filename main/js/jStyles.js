@@ -1,3 +1,6 @@
+// EVERYTHING TO DO WITH STYLING HTML ELEMENTS USING JS
+
+// FADE IN
 function main(){
   $('.massive-container').hide();
   $('form').hide();

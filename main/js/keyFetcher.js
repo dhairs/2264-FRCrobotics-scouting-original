@@ -56,6 +56,7 @@ function sendEvent(){
 
     strUser = e.options[e.selectedIndex].text;
 
+
     $("#table-items tr").remove(); 
     // document.getElementById("table-items").deleteRow(1);
 

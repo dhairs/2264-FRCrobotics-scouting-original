@@ -13,7 +13,7 @@ function teamList() {
     // For Each item in the Team Array, make an li
     teamArray.forEach(function () {
 
-
+        $('.table').fadeIn(2000);
         // Add the ul to the list
         var table = document.getElementById('table-items')
 
@@ -22,11 +22,16 @@ function teamList() {
 
         // Make an li
         let tr = document.createElement('tr');
+        let teamNamesTableVals = document.createElement('td');
+        let teamScores = document.createElement('td');
+
         tr.classList.toggle('inline-centering');
 
         table.appendChild(tr);
-
-        tr.innerHTML = name;
+        tr.appendChild(teamNamesTableVals);
+        tr.appendChild(teamScores);
+        teamNamesTableVals.innerHTML = name;
+        teamScores.innerHTML = u.toString();
         u++;
   });
 }

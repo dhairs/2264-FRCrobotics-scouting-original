@@ -4,7 +4,7 @@
 function main(){
   $('.massive-container').hide();
   $('form').hide();
-
+  $('.table').hide();
   $('.massive-container').fadeIn(2500);
   setTimeout(function () {
 

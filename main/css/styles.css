@@ -171,11 +171,23 @@ img {
     display: inline-block;
 }
 
+.loading-div {
+  display: inline-block;
+  text-align: center;
+  height: 62.3px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+.loading {
+  display: block;
+  margin:0 auto;
+  margin-bottom: 3vw;
 
-
+}
 .center-header {
   /* margin-left: 50vw; */
-  width: device-width;
+  /* width: device-width; */
 }
 
 

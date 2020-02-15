@@ -15,6 +15,7 @@ function main(){
   }, 300);
   }
   $('.table').hide();
+  $('.loading').hide();
 
   // $('form').show();
   //

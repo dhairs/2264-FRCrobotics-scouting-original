@@ -50,6 +50,8 @@ eNameRequest.onreadystatechange = function() {
 var strUser;
 // Gets the event the user chose and forwards it to another function
 function sendEvent(){
+    $('.table').fadeOut(400);
+    $('.loading').fadeIn(100);
     params.delete('listID');
     // Gets the form from HTML, saves input
     var e = document.getElementById("event-chosen");
@@ -94,7 +96,7 @@ function makeRequest(x){
   params.set('eventName', strUser);
   window.history.replaceState({}, '', 'index.html'+'?' + params);
   console.log(params.get('listID'))
-  makeList(x);
+//   makeList(x);
   checkParams();
   // var teamRequest = new XMLHttpRequest();
   // teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x , true);

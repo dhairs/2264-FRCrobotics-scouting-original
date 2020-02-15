@@ -14,6 +14,7 @@ function teamList() {
     // For Each item in the Team Array, make an table row
     teamArray.forEach(function () {
         $('.table').hide();
+        // $('.loading').fadeOut(600);
         $('.table').fadeIn(1000);
         // Add the tr to the table
         var table = document.getElementById('table-items')
@@ -36,13 +37,14 @@ function teamList() {
         // teamScores.innerHTML = key;
         u++;
   });
+  teamArray = [];
 }
 var urlKey;
 var urlName;
 function checkParams(){
   var url = new URL(window.location.href);
   var listID = url.searchParams.get('listID');
-  console.log(listID);
+
   if(listID != null){
     // url.searchParams.get('eventName');
     urlKey = eKeyArray.indexOf(listID);
@@ -68,7 +70,7 @@ function makeList(x){
 
           for (a = 0; a < teamRequestObj.length; a++) {
             teamArray.push(teamRequestObj[a].nickname);
-            // tKeyArray.push(teamRequestObj[a].team_number);
+            tKeyArray.push(teamRequestObj[a].key);
         }
         teamList();
 
@@ -129,7 +131,7 @@ function makeList(x){
 function waitTillRun(){
   setTimeout(function(){
     checkParams();
-  }, 1000)
+  }, 10)
 }
 
 $(document).ready(waitTillRun);

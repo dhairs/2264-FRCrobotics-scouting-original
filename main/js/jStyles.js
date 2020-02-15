@@ -5,6 +5,6 @@ function main(){
   setTimeout(function () {
     $('form').fadeIn(2000);
   }, 300);
-
+  $('form').show();
 }
 $(document).ready(main);

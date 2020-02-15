@@ -3,6 +3,14 @@
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Scouting</title>
+
+        <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+        <script src="js/nameList.js"></script>
+        <script src="js/serverStatus.js"></script>
+        <script src="js/nameFetcher.js"></script>
+        <script src="js/keyFetcher.js"></script>
+        <script src="js/jStyles.js"></script>
+
     </head>
 
     <body>
@@ -26,7 +34,13 @@
                 <h3 class="server-status" id="server-status"></h3> -->
             <!-- </div> -->
           </div>
-
+  <form>
+  <label for="events">Choose Event:</label>
+  <select id="event-chosen">
+    <option>Choose an Event:</option>
+</select>
+  <input type="submit" onclick="sendEvent()">
+</form>
             <div class="list-teams" id="myItemList">
 
                 <ul class="listStuff, inline-centering" id="list">
@@ -36,12 +50,6 @@
             </div>
         </div>
 
-    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
-    <script src="js/nameList.js"></script>
-    <script src="js/serverStatus.js"></script>
-    <script src="js/nameFetcher.js"></script>
-    <script src="js/keyFetcher.js"></script>
-    <script src="js/jStyles.js"></script>
 
 
     </body>

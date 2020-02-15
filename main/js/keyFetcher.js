@@ -1,32 +1,19 @@
-var keyRequest = new XMLHttpRequest();
-var ekeyRequest = new XMLHttpRequest();
-let enameRequest = new XMLHttpRequest();
+var eteamRequest = new XMLHttpRequest();
+let eNameRequest = new XMLHttpRequest();
 
-var keyArray = [];
-var ekeyArray = [];
-var enameArray = [];
+var teamArray = [];
+var eKeyArray = [];
+var eNameArray = [];
 var done = false;
 var p;
 var c = 0;
-var enameRequestObj
-
-keyRequest.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200){
-
-
-        var keyRequestObj = JSON.parse(this.responseText);
-        var a;
+var eNameRequestObj
+var currentEventKey;
+var currentEventNum;
 
 
-        for (a = 0; a < keyRequestObj.length; a++) {
-        // console.log(keyRequestObj[a].key);
-        keyArray.push(keyRequestObj[a].key);
-      }
-      // console.log(keyArray);
-    }
-}
 
-// enameRequest.onreadystatechange = function() {
+// eNameRequest.onreadystatechange = function() {
 //
 //
 //
@@ -36,49 +23,89 @@ keyRequest.onreadystatechange = function() {
 
 
 
-ekeyRequest.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-
-        var ekeyRequestObj = JSON.parse(this.responseText);
-        var b;
-
-        for(b = 0; b < ekeyRequestObj.length; b++) {
-        // console.log(ekeyRequestObj[b]);
-        ekeyArray.push(ekeyRequestObj[b]);
-
-      }
-      }
-    }
 var b;
-enameRequest.onreadystatechange = function() {
+
+
+eNameRequest.onreadystatechange = function() {
+  var form = document.getElementById('event-chosen');
     if (this.readyState == 4 && this.status == 200) {
 
-        var enameRequestObj = JSON.parse(this.responseText);
+        var eNameRequestObj = JSON.parse(this.responseText);
         var c;
 
-        for(c = 0; c < enameRequestObj.length; c++) {
+        for(c = 0; c < eNameRequestObj.length; c++) {
 
-        enameArray.push(enameRequestObj[c].name);
-        enameArray.push(enameRequestObj[c].key);
+        eNameArray.push(eNameRequestObj[c].name);
+        eKeyArray.push(eNameRequestObj[c].key);
+
+        var option = document.createElement('option');
+        option.textContent = eNameRequestObj[c].name;
+        option.value = eNameRequestObj[c].name;
+        form.appendChild(option);
+
+
       }
-      console.log(enameArray);
+      console.log(eNameArray);
     }
+}
+
+function sendEvent(){
+  var e = document.getElementById("event-chosen");
+  var strUser = e.options[e.selectedIndex].text;
+  console.log(strUser);
+  var currentEventNum = eNameArray.indexOf(strUser);
+  var currentEventKey = eKeyArray[currentEventNum];
+  console.log(currentEventKey);
+  makeRequest(currentEventKey);
+}
+
+function nameList(){
+
+    console.log(nameArray);
+    nameArray.forEach(function (name) {
+      // form = document.getElementById('event-chosen');
+      //
+      //   let option = document.createElement('option');
+      //   form.appendChild(option);
+      //
+      //   option.innerHTML += name;
+      //   console.log(nameArray);
+
+
+  })
+}
+
+function makeRequest(x){
+  var teamRequest = new XMLHttpRequest();
+  teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x , true);
+  teamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+  teamRequest.send();
+  teamRequest.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200){
+
+
+          var teamRequestObj = JSON.parse(this.responseText);
+          var a;
+
+          for (a = 0; a < teamRequestObj.length; a++) {
+              teamArray.push(teamRequestObj[a].first_event_id)
+        }
+
+      console.log(teamArray);
+      }
+  }
 }
 
 
 
 
+eNameRequest.open('GET', "https://www.thebluealliance.com/api/v3/events/2020", true);
+eNameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+eNameRequest.send();
 
 
-enameRequest.open('GET', "https://www.thebluealliance.com/api/v3/events/2020", true);
-enameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-enameRequest.send();
-
-keyRequest.open("GET", "https://www.thebluealliance.com/api/v3/teams/1" , true);
-keyRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-keyRequest.send();
 
 
-ekeyRequest.open("GET", "https://www.thebluealliance.com/api/v3/events/2019/keys", true);
-ekeyRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-ekeyRequest.send();
+eteamRequest.open("GET", "https://www.thebluealliance.com/api/v3/events/2019/keys", true);
+eteamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+eteamRequest.send();

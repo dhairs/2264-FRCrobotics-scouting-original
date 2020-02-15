@@ -29,7 +29,10 @@ form {
 }
 
 select {
+  background-color: #f5f2d0;
   width:50vw;
+  font-family: 'Abel', sans-serif;
+  font-size: 26px;
 }
 option {
   font-family: 'Abel', sans-serif;

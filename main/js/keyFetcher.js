@@ -47,12 +47,12 @@ eNameRequest.onreadystatechange = function() {
 
 
       }
-      na = eNameArray.sort();
+      // na = eNameArray.sort();
 
       for(c = 0; c < eNameRequestObj.length; c++) {
         var option = document.createElement('option');
-        option.textContent = na[c];
-        option.value = na[c];
+        option.textContent = eNameArray[c];
+        option.value = eNameArray[c];
         form.appendChild(option);
       }
 

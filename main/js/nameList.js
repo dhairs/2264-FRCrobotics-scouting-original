@@ -47,13 +47,13 @@
 // // }
 var name;
 function teamList() {
-  newTeamArray = teamArray.sort();
+  
   var u = 0;
-  newTeamArray.forEach(function () {
+  teamArray.forEach(function () {
     ul = document.createElement('ul');
     document.getElementById('myItemList').appendChild(ul);
-    // for(u = 0; u < newTeamArray.length; u++){
-    name = newTeamArray[u];
+    // for(u = 0; u < teamArray.length; u++){
+    name = teamArray[u];
     let li = document.createElement('li');
     ul.classList.add('listStuff');
     li.classList.toggle('inline-centering');
@@ -63,9 +63,7 @@ function teamList() {
     // }
 });
 }
-var newTeamArray = [];
 var teamArray = [];
-
 
 function makeList(x){
   $('ul').empty()

@@ -3,6 +3,7 @@ var name;
 var u = 0;
 var teamArray = [];
 
+var url = new URL(window.location.href);
 // Takes TeamArray items and puts them onto the site
 function teamList() {
     u = 0;
@@ -28,9 +29,19 @@ function teamList() {
         u++;
   });
 }
-
+function checkParams(){
+  
+  var listID = url.searchParams.get('listID');
+  console.log(listID);
+  if(listID != null){
+  makeList(listID);
+  }
+}
 
 function makeList(x){
+
+  
+
   $('ul').empty()
   teamArray = [];
   var teamRequest = new XMLHttpRequest();
@@ -102,3 +113,4 @@ function makeList(x){
 // //    }
 // // }
 // // }
+$(document).ready(checkParams);

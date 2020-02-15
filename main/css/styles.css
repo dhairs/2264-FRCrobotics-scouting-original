@@ -16,7 +16,8 @@ body {
 
   /* Background Gradient */
   background-repeat: no-repeat;
-  background: linear-gradient(320deg, #adf006, #072cc3);
+  background: rgb(23,174,204);
+background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50%, rgba(23,174,204,1) 100%);
   background-size: 400% 400%;
   /* Animation */
   -webkit-animation: AnimationName 10s ease infinite;
@@ -24,6 +25,11 @@ body {
   animation: AnimationName 10s ease infinite;
 }
 
+li {
+  margin-left: 3vw;
+  margin-right: 3vw;
+  list-style-type: none;
+}
 
 /* Everything Forms */
 form {
@@ -47,14 +53,16 @@ img {
   float: left;
 }
 
-
+a {
+  text-align: center;
+}
 /* CLASSES */
 
 /* Header Classes */
 
 .header {
   overflow: hidden;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.4);
   text-align: center;
 }
 
@@ -79,9 +87,9 @@ img {
   float: right;
 }
 
-.original-option {
+/* .original-option {
   font-size: 1.75vw;
-}
+} */
 
 @media screen and (max-width: 500px) {
   .header a {
@@ -142,17 +150,17 @@ li:hover{
 
 /* More Animation Stuff */
 @-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    0%{background-position:0% 0%}
+    50%{background-position:100% 100%}
+    100%{background-position:0% 0%}
 }
 @-moz-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    0%{background-position:0% 0%}
+    50%{background-position:100% 100%}
+    100%{background-position:0% 0%}
 }
 @keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    0%{background-position:0% 0%}
+    50%{background-position:100% 100%}
+    100%{background-position:0% 0%}
 }

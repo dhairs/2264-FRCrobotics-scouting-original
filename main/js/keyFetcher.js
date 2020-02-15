@@ -89,7 +89,6 @@ function nameList(){
 var url = new URL(window.location.href);
   let params = new URLSearchParams(url.search.slice(1));
 function makeRequest(x){
-    
   params.delete('listID');
   params.set('listID', x);
   params.set('eventName', strUser);

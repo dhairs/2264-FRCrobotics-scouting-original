@@ -20,7 +20,7 @@ function teamList() {
 
         // Get the specific team name from the array
         name = teamArray[u];
-        key = tKeyArray[u];
+        // key = tKeyArray[u];
 
         // Make an li
         let tr = document.createElement('tr');
@@ -33,7 +33,7 @@ function teamList() {
         tr.appendChild(teamNamesTableVals);
         tr.appendChild(teamScores);
         teamNamesTableVals.innerHTML = name;
-        teamScores.innerHTML = key;
+        // teamScores.innerHTML = key;
         u++;
   });
 }
@@ -68,7 +68,7 @@ function makeList(x){
 
           for (a = 0; a < teamRequestObj.length; a++) {
             teamArray.push(teamRequestObj[a].nickname);
-            tKeyArray.push(teamRequestObj[a].team_number);
+            // tKeyArray.push(teamRequestObj[a].team_number);
         }
         teamList();
 

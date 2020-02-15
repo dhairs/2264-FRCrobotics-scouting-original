@@ -49,7 +49,7 @@ eNameRequest.onreadystatechange = function() {
 var strUser;
 // Gets the event the user chose and forwards it to another function
 function sendEvent(){
-   
+   params.delete('listID');
     // Gets the form from HTML, saves input
     var e = document.getElementById("event-chosen");
     strUser = e.options[e.selectedIndex].text;
@@ -83,11 +83,11 @@ function nameList(){
 var url = new URL(window.location.href);
   let params = new URLSearchParams(url.search.slice(1));
 function makeRequest(x){
-
+    
   params.delete('listID');
   params.set('listID', x);
   params.set('eventName', strUser);
-  window.history.replaceState({}, '', url +'?' + params);
+  window.history.replaceState({}, '', 'index.html'+'?' + params);
   console.log(params.get('listID'))
   makeList(x);
   checkParams();

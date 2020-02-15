@@ -120,4 +120,11 @@ function makeList(x){
 // //    }
 // // }
 // // }
-$(document).ready(checkParams);
+
+function waitTillRun(){
+  setTimeout(function(){
+    checkParams();
+  }, 1000)
+}
+
+$(document).ready(waitTillRun);

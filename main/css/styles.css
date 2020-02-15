@@ -171,6 +171,10 @@ img {
     display: inline-block;
 }
 
+.event-name {
+  font-family: 'Tomorrow', sans-serif;
+}
+
 .loading-div {
   display: inline-block;
   text-align: center;

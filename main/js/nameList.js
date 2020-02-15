@@ -14,7 +14,7 @@ function teamList() {
     // For Each item in the Team Array, make an table row
     teamArray.forEach(function () {
         $('.table').hide();
-        // $('.loading').fadeOut(600);
+        $('.loading').fadeOut(600);
         $('.table').fadeIn(1000);
         // Add the tr to the table
         var table = document.getElementById('table-items')
@@ -131,7 +131,7 @@ function makeList(x){
 function waitTillRun(){
   setTimeout(function(){
     checkParams();
-  }, 10)
+  }, 1000)
 }
 
 $(document).ready(waitTillRun);

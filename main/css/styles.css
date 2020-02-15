@@ -55,6 +55,7 @@ img {
 .header {
   overflow: hidden;
   background-color: white;
+  text-align: center;
 }
 
 .header a {
@@ -70,8 +71,16 @@ img {
   font-weight: bold;
 }
 
+.logo {
+  display: inline-block;
+}
+
 .header-right {
   float: right;
+}
+
+.original-option {
+  font-size: 1.75vw;
 }
 
 @media screen and (max-width: 500px) {
@@ -88,9 +97,9 @@ img {
 
 /* More Classes */
 
-.Medium {
-  height: 4vw;
-}
+/* .Medium {
+  height: 5vw;
+} */
 
 
 .massive {

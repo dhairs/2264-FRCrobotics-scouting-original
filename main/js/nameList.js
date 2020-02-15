@@ -45,9 +45,27 @@
 // //    }
 // // }
 // // }
+var name;
+function teamList() {
+  var u = 0;
+  teamArray.forEach(function () {
+    ul = document.createElement('ul');
+    document.getElementById('myItemList').appendChild(ul);
+    // for(u = 0; u < teamArray.length; u++){
+    name = teamArray[u];
+    let li = document.createElement('li');
+    ul.classList.add('listStuff');
+    li.classList.toggle('inline-centering');
+    ul.appendChild(li);
+    li.innerHTML += name;
+    u++;
+    // }
+});
+}
 var teamArray = [];
 
 function makeList(x){
+  $('ul').empty()
   teamArray = [];
   var teamRequest = new XMLHttpRequest();
   teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x + "/teams" , true);
@@ -69,21 +87,4 @@ function makeList(x){
       }
     }
 
-}
-var name;
-function teamList() {
-  var u = 0;
-  teamArray.forEach(function () {
-    ul = document.createElement('ul');
-    document.getElementById('myItemList').appendChild(ul);
-    // for(u = 0; u < teamArray.length; u++){
-    name = teamArray[u];
-    let li = document.createElement('li');
-    ul.classList.add('listStuff');
-    li.classList.toggle('inline-centering');
-    ul.appendChild(li);
-    li.innerHTML += name;
-    u++;
-    // }
-});
 }

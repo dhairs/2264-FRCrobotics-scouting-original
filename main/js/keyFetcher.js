@@ -1,6 +1,9 @@
 var eteamRequest = new XMLHttpRequest();
 let eNameRequest = new XMLHttpRequest();
 
+$("#prospects_form").submit(function(e) {
+    e.preventDefault();
+});
 
 var eKeyArray = [];
 var eNameArray = [];

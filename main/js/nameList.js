@@ -44,8 +44,9 @@ var urlName;
 function checkParams(){
   var url = new URL(window.location.href);
   var listID = url.searchParams.get('listID');
-  $('.loading').fadeIn(600);
+
   if(listID != null){
+    $('.loading').fadeIn(600);
     // url.searchParams.get('eventName');
     urlKey = eKeyArray.indexOf(listID);
     urlName = eNameArray[urlKey];

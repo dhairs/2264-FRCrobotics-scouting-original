@@ -7,9 +7,9 @@ function main(){
 
     $('form').fadeIn(2000);
   }, 300);
-  
-  $('form').show();
 
-  $('.massive-container').show();
+  // $('form').show();
+  //
+  // $('.massive-container').show();
 }
 $(document).ready(main);

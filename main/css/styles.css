@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Tomorrow&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 
 body {
   width: device-width;
@@ -31,12 +32,16 @@ select {
   width:50vw;
 }
 option {
+  font-family: 'Abel', sans-serif;
+  font-size: 1.5vw;
 }
 html {
     height: 100%;
 }
 
-
+.Medium {
+  height: 4vw;
+}
 
 
 

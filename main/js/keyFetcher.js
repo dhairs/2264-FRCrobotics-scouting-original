@@ -59,7 +59,6 @@ function sendEvent(){
   var currentEventKey = eKeyArray[currentEventNum];
   console.log(currentEventKey);
   makeRequest(currentEventKey);
-  return false;
 }
 
 function nameList(){

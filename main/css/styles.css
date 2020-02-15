@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Tomorrow&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 
 html {
     height: 100%;
@@ -25,10 +26,16 @@ background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50
   animation: AnimationName 10s ease infinite;
 }
 
+
 li {
+  font-family: 'Work Sans', sans-serif;
   margin-left: 3vw;
   margin-right: 3vw;
   list-style-type: none;
+}
+
+.submit-form {
+  font-size: 3.5vw;
 }
 
 /* Everything Forms */
@@ -38,7 +45,7 @@ form {
 
 select {
   background-color: #f5f2d0;
-  width:50vw;
+  width: 50vw;
   font-family: 'Abel', sans-serif;
   font-size: 15px;
 }
@@ -55,6 +62,11 @@ img {
 /* CLASSES */
 
 /* Header Classes */
+
+ul {
+  width: ;
+  background-color: rgba(0, 0, 0, 0.25);
+}
 
 .header {
   overflow: hidden;
@@ -107,6 +119,9 @@ img {
   height: 5vw;
 } */
 
+.list-teams {
+  margin-bottom: 5vh;
+}
 
 .massive {
   font-size: 20vw;
@@ -131,8 +146,8 @@ img {
     text-align: center;
 }
 .listStuff {
-  padding: 0;
-  margin:0;
+  padding: 0px;
+  margin: 0px;
 }
 
 .server-status {

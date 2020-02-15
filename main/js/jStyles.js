@@ -6,5 +6,6 @@ function main(){
     $('form').fadeIn(2000);
   }, 300);
   $('form').show();
+  $('.massive-container').fadeIn(2500);
 }
 $(document).ready(main);

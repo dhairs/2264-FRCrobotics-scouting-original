@@ -11,8 +11,8 @@ body {
   background-image: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(215,255,0,1) 0%, rgba(0,212,255,1) 100%);
   background-size: 300% 300%; */
   margin: 0;
-  /* background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed;
   animation: change 15s infinite; */
   background: linear-gradient(320deg, #adf006, #072cc3);
   background-size: 400% 400%;

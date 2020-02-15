@@ -26,7 +26,7 @@ $("#prospects_form").submit(function(e) {
 
 
 var b;
-
+var na = [];
 
 eNameRequest.onreadystatechange = function() {
   var form = document.getElementById('event-chosen');
@@ -40,14 +40,22 @@ eNameRequest.onreadystatechange = function() {
         eNameArray.push(eNameRequestObj[c].name);
         eKeyArray.push(eNameRequestObj[c].key);
 
-        var option = document.createElement('option');
-        option.textContent = eNameRequestObj[c].name;
-        option.value = eNameRequestObj[c].name;
-        form.appendChild(option);
+        // var option = document.createElement('option');
+        // option.textContent = eNameRequestObj[c].name;
+        // option.value = eNameRequestObj[c].name;
+        // form.appendChild(option);
 
 
       }
-      console.log(eNameArray);
+      na = eNameArray.sort();
+
+      for(c = 0; c < eNameRequestObj.length; c++) {
+        var option = document.createElement('option');
+        option.textContent = na[c];
+        option.value = na[c];
+        form.appendChild(option);
+      }
+
     }
 }
 

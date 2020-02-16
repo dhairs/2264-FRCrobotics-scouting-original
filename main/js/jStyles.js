@@ -16,6 +16,7 @@ function main(){
   }
   $('.table').hide();
   $('.loading').hide();
+  $('.teamNumForm').hide();
 
   // $('form').show();
   //

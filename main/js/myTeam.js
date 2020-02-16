@@ -32,7 +32,7 @@ function checkCookie(){
 }
 
 function workCookie(){
-    if(window.location == "index.html"){
+    
    setTimeout(function(){
     if(cookieNumber.length == 4){
         $('.teamNumForm').hide();
@@ -44,7 +44,7 @@ function workCookie(){
     }
   }, 1000)
 }
-}
+
 
  function deleteCookie() {
         createCookie("teamID", "", -1);

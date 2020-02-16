@@ -34,7 +34,7 @@ function checkCookie(){
 function workCookie(){
     
    setTimeout(function(){
-    if(cookieNumber.length == 4){
+    if(cookieNumber.length > 2){
         $('.teamNumForm').hide();
         document.getElementById('numHeading').innerHTML = 'Your Team Number: ' + cookieNumber + " (<a onclick='deleteCookie()' href=''>change/remove team number</a>)";
         $('.showNum').show();
@@ -47,7 +47,7 @@ function workCookie(){
 
 
  function deleteCookie() {
-        createCookie("teamID", "", -1);
+        createCookie("", "epic", -1);
     }
 	
 

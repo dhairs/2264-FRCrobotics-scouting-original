@@ -1,3 +1,5 @@
+var infoRequest;
+var infoRequestObj;
 var cookieNumber;
 var date = new Date();
 
@@ -48,24 +50,25 @@ function workCookie(){
 	
 
 function getMyTeamInfo(){
-  var infoRequest = new XMLHttpRequest();
-  infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc2264/" , true);
+setTimeout(function(){
+  infoRequest = new XMLHttpRequest();
+  infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/" , true);
   infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   infoRequest.send();
   infoRequest.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200){
 
-          var infoRequestObj = JSON.parse(this.responseText);
+          infoRequestObj = JSON.parse(this.responseText);
           var a;
-          var titleNameHeading = document.getElementsByClassName('nameHeading')
-          titleNameHeading.innerHTML = infoRequestObj.nickname;
+          var titleNameHeading = document.getElementsById('nameHeading');
+          titleNameHeading.innerHTML = "epic";
           console.log(infoRequestObj)
           
     
 
       }
     }
-
+    } , 1000)
 }
 
 $(document).ready(checkCookie());

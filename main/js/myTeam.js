@@ -18,7 +18,6 @@ function checkCookie(){
                 let cookie = cookies[i];
                 console.log(cookie);
                 cookieNumber = cookie.toString().slice(7);
-
                 while (cookie.charAt(0) === ' ') {
                     cookie = cookie.substring(1, cookie.length);
                 }

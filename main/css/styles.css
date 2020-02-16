@@ -131,7 +131,7 @@ img {
   padding: 8px;
 }
 
-button {
+a.normal {
   text-decoration: none;
   color: black;
 }

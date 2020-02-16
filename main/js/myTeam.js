@@ -33,7 +33,7 @@ function workCookie(){
    setTimeout(function(){
     if(cookieNumber.length == 4){
         $('.teamNumForm').hide();
-        document.getElementById('numHeading').innerHTML = 'Your team Number: ' + cookieNumber + " (<a onclick='deleteCookie()' href=''>change/remove team number</a>)";
+        document.getElementById('numHeading').innerHTML = 'Your Team Number: ' + cookieNumber + " (<a onclick='deleteCookie()' href=''>change/remove team number</a>)";
         $('.showNum').show();
     } else {
         $('.teamNumForm').show();

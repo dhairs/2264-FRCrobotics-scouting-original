@@ -5,6 +5,7 @@ var teamArray = [];
 var frcID;
 var url = new URL(window.location.href);
 var tKeyArray = [];
+var sortedTeamArray = [];
 // Takes TeamArray items and puts them onto the site
 function teamList() {
     u = 0;

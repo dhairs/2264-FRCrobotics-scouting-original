@@ -11,6 +11,7 @@
         <script src="js/nameFetcher.js"></script>
         <script src="js/keyFetcher.js"></script>
         <script src="js/jStyles.js"></script>
+        <script src="js/myTeam.js"></script>
     </head>
 
     <body>
@@ -26,6 +27,12 @@
             <div class="massive-container">
                 <a class="massive"> Scouting </a>
             </div>
+            <hr>
+            <form onsubmit="return false;">
+              <label for="myTeamInput">Your Team Number:</label>
+              <input type="number" id="myTeamNumber" class="myTeamInput" placeholder="(e.g. 1234)">
+              <input type="submit" onclick="createCookie(document.getElementById('myTeamNumber').value)">
+            </form>
               <!-- Form and Button -->
             <form onsubmit="return false;">
                 <select class="Medium" id="event-chosen">

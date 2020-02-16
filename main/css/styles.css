@@ -37,7 +37,7 @@ tr {
 }
 
 .submit-form {
-  font-size: 3.5vw;
+  font-size: 1vw;
 }
 
 /* Everything Forms */
@@ -49,7 +49,7 @@ select {
   background-color: #f5f2d0;
   width: 50vw;
   font-family: 'Abel', sans-serif;
-  font-size: 15px;
+  font-size: 1vw;
 }
 option {
   font-family: 'Abel', sans-serif;

@@ -1,10 +1,10 @@
 var cookieNumber;
 var date = new Date();
 
-date.setTime(date.getTime() + (1000*60*60*24*30));
+date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30));
 //date.setTime(date.getTime() + (2592000000));
 function createCookie(value) {
-    var cookie = "teamID=" + value + ";expires=" + date.toGMTString()+";" ;
+    var cookie = "teamID=" + value + ";expires=" + date.toGMTString() + ";";
     document.cookie = cookie;
     console.log(cookie);
     console.log("Creating new cookie with key: teamID value: " + value);
@@ -34,8 +34,11 @@ function workCookie(){
    setTimeout(function(){
     if(cookieNumber.length == 4){
         $('.teamNumForm').hide();
+        document.getElementById('numHeading').innerHTML = 'Your team Number: ' + cookieNumber + " (<a onclick='deleteCookie()' href=''>change/remove team number</a>)";
+        $('.showNum').show();
     } else {
         $('.teamNumForm').show();
+        $('.showNum').hide();
     }
   }, 1000)
 }

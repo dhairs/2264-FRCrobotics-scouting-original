@@ -46,5 +46,29 @@ function workCookie(){
         createCookie("teamID", "", -1);
     }
 	
+
+function getMyTeamInfo(){
+  $('ul').empty()
+  var teamRequest = new XMLHttpRequest();
+  teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x + "/teams" , true);
+  teamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+  teamRequest.send();
+  teamRequest.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200){
+
+          var teamRequestObj = JSON.parse(this.responseText);
+          var a;
+
+          for (a = 0; a < teamRequestObj.length; a++) {
+            teamArray.push(teamRequestObj[a].nickname);
+            tKeyArray.push(teamRequestObj[a].key);
+        }
+        teamList();
+
+      }
+    }
+
+}
+
 $(document).ready(checkCookie());
 $(document).ready(workCookie());

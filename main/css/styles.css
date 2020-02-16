@@ -58,7 +58,7 @@ tr {
 }
 
 .logoPic {
-  
+
 }
 
 /* Everything Forms */
@@ -129,6 +129,11 @@ img {
 .table td, .table th {
   border: 1px solid #ddd;
   padding: 8px;
+}
+
+.normal {
+  text-decoration: none;
+  color: black;
 }
 
 .table tr:nth-child(even){background-color: rgba(0, 0, 0, 0.2);}

@@ -32,6 +32,7 @@ function checkCookie(){
 }
 
 function workCookie(){
+    if(window.location == "index.html"){
    setTimeout(function(){
     if(cookieNumber.length == 4){
         $('.teamNumForm').hide();
@@ -43,6 +44,7 @@ function workCookie(){
     }
   }, 1000)
 }
+}
 
  function deleteCookie() {
         createCookie("teamID", "", -1);
@@ -50,7 +52,7 @@ function workCookie(){
 	
 
 function getMyTeamInfo(){
-setTimeout(function(){
+
   infoRequest = new XMLHttpRequest();
   infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/" , true);
   infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -68,7 +70,7 @@ setTimeout(function(){
 
       }
     }
-    } , 1000)
+
 }
 
 $(document).ready(checkCookie());

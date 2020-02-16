@@ -34,7 +34,7 @@ function checkCookie(){
 function workCookie(){
     
    setTimeout(function(){
-    if(cookieNumber.length > 2){
+    if(cookieNumber.length >= 2){
         $('.teamNumForm').hide();
         document.getElementById('numHeading').innerHTML = 'Your Team Number: ' + cookieNumber + " (<a onclick='deleteCookie()' href=''>change/remove team number</a>)";
         $('.showNum').show();

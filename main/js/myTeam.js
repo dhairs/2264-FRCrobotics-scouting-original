@@ -48,22 +48,20 @@ function workCookie(){
 	
 
 function getMyTeamInfo(){
-  $('ul').empty()
-  var teamRequest = new XMLHttpRequest();
-  teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x + "/teams" , true);
-  teamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-  teamRequest.send();
-  teamRequest.onreadystatechange = function() {
+  var infoRequest = new XMLHttpRequest();
+  infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc2264/" , true);
+  infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+  infoRequest.send();
+  infoRequest.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200){
 
-          var teamRequestObj = JSON.parse(this.responseText);
+          var infoRequestObj = JSON.parse(this.responseText);
           var a;
-
-          for (a = 0; a < teamRequestObj.length; a++) {
-            teamArray.push(teamRequestObj[a].nickname);
-            tKeyArray.push(teamRequestObj[a].key);
-        }
-        teamList();
+          var titleNameHeading = document.getElementsByClassName('nameHeading')
+          titleNameHeading.innerHTML = infoRequestObj.nickname;
+          console.log(infoRequestObj)
+          
+    
 
       }
     }
@@ -72,3 +70,4 @@ function getMyTeamInfo(){
 
 $(document).ready(checkCookie());
 $(document).ready(workCookie());
+$(document).ready(getMyTeamInfo());

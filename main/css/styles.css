@@ -52,6 +52,11 @@ tr {
   font-size: 2.5vh;
 }
 
+.numHeading {
+    font-family: 'Abel', sans-serif;
+    font-size: 3vh;
+}
+
 /* Everything Forms */
 form {
   margin-top: 20px;

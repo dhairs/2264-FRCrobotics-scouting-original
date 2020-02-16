@@ -37,7 +37,34 @@ h5 {
 }
 
 .myTeamSubmit {
-    height: 3vh;
+  background-color: white;  /*Green */
+  border: none;
+  color: black;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+  font-family: 'Roboto Mono', monospace;
+  
+}
+
+.myTeamButton {
+      background-color: white;  /*Green */
+  border: none;
+  color: black;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+  font-family: 'Roboto Mono', monospace;
 }
 
 tr {
@@ -54,7 +81,18 @@ tr {
 }
 
 .submit-form {
-  font-size: 2.5vh;
+  background-color: white;  /*Green */
+  border: none;
+  color: black;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .numHeading {
@@ -191,6 +229,8 @@ a.normal {
   margin-bottom: 10vh;
   font-family: 'Roboto Mono', monospace;
 }
+
+
 
 .nameHeading {
   width: device-width;

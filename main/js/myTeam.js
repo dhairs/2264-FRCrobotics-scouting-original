@@ -8,6 +8,7 @@ function createCookie(value) {
     document.cookie = cookie;
     console.log(cookie);
     console.log("Creating new cookie with key: teamID value: " + value);
+    window.location.reload();
 }
 
 function checkCookie(){

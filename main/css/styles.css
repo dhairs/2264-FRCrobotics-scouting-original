@@ -10,6 +10,10 @@ html {
     height: 100%;
 }
 
+hr {
+    mix-blend-mode: difference;
+}
+
 body {
   text-align: center;
   /* General */
@@ -27,6 +31,9 @@ background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50
   animation: AnimationName 10s ease infinite;
 }
 
+.myTeamSubmit {
+    height: 3vh;
+}
 
 tr {
   font-family: 'Work Sans', sans-serif;
@@ -36,6 +43,11 @@ tr {
   list-style-type: none;
 }
 
+.numLabel {
+  font-family: 'Abel', sans-serif;
+  font-size: 3vh;
+}
+
 .submit-form {
   font-size: 2.5vh;
 }
@@ -43,6 +55,11 @@ tr {
 /* Everything Forms */
 form {
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.myTeamInput {
+    height: 3vh;
 }
 
 select {
@@ -58,7 +75,7 @@ option {
 
 img {
   height: 10vh;
-  float: left;
+  float: center;
 }
 
 /* CLASSES */
@@ -73,7 +90,6 @@ img {
 }
 
 .header a {
-  float: left;
   text-align: center;
   font-size: 18px;
   line-height: 25px;

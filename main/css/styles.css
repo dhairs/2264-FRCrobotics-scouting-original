@@ -188,8 +188,10 @@ a.normal {
 }
 
 .nameHeading {
+  width: device-width;
   font-size: 20vw;
   font-family: 'Tomorrow', sans-serif;
+  
 }
 
 .blank_space {

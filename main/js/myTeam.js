@@ -1,5 +1,6 @@
-
+var cookieNumber;
 var date = new Date();
+
 date.setTime(date.getTime() + (1000*60*60*24*30));
 //date.setTime(date.getTime() + (2592000000));
 function createCookie(value) {
@@ -14,7 +15,9 @@ function checkCookie(){
             let cookies = document.cookie.split(';');
             for (let i = 0; i < cookies.length; i++) {
                 let cookie = cookies[i];
-                console.log(cookie)
+                console.log(cookie);
+                cookieNumber = cookie.toString().slice(7);
+
                 while (cookie.charAt(0) === ' ') {
                     cookie = cookie.substring(1, cookie.length);
                 }
@@ -22,7 +25,18 @@ function checkCookie(){
                     return cookie.substring(key.length, cookie.length);
                 }
             }
-            return null;
+
+    
+}
+
+function workCookie(){
+   setTimeout(function(){
+    if(cookieNumber.length == 4){
+        $('.teamNumForm').hide();
+    } else {
+        $('.teamNumForm').show();
+    }
+  }, 1000)
 }
 
  function deleteCookie() {
@@ -30,3 +44,4 @@ function checkCookie(){
     }
 	
 $(document).ready(checkCookie());
+$(document).ready(workCookie());

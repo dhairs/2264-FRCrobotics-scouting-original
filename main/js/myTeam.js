@@ -57,6 +57,7 @@ setTimeout(function() {
   infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber, true);
   infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   infoRequest.send();
+    
   infoRequest.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200){
 
@@ -64,12 +65,15 @@ setTimeout(function() {
           if(infoRequestObj != undefined){
           var a;
           var titleNameHeading = document.getElementById('nameHeading');
+          var teamLocation = document.getElementById('location');   
 //          var websiteButton = document.getElementById('button');
 //          websiteButton.textContent = "Visit team Website";
           titleNameHeading.innerHTML = infoRequestObj.nickname;
+          teamLocation.innerHTML = infoRequestObj.city;
           console.log(infoRequestObj);
           $('.websiteButton').fadeIn(3000);
           $('.nameHeading').fadeIn(1500);
+          $('.location').fadeIn(1500);
           }
           
     

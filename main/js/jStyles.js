@@ -11,6 +11,7 @@ function main(){
   $('.massive-container').fadeIn(2500);
   $('.nameHeading').hide();
   $('.websiteButton').hide();
+  $('.location').hide();
   setTimeout(function () {
 
     $('form').fadeIn(2000);

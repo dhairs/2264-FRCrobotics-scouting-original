@@ -8,10 +8,13 @@ function main(){
   if(listID == null){
   $('.massive-container').hide();
   $('form').hide();
+  $('hr').hide();
   $('.massive-container').fadeIn(2500);
   $('.nameHeading').hide();
   $('.websiteButton').hide();
   $('.location').hide();
+  $('.teamCountry').hide();
+  $('hr').fadeIn(1000);
   setTimeout(function () {
 
     $('form').fadeIn(2000);

@@ -7,11 +7,11 @@ var teamAvg;
 var currentTeamScore;
 var numOfMatches;
 
-getTeamScores();
+getTeamScores("frc1482", "2019abca");
 function getTeamScores(tKey, eKey) {
     setTimeout(function(){
   var teamScoreRequest = new XMLHttpRequest();
-  teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches/simple" , true);
+  teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
   teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   teamScoreRequest.send();
   teamScoreRequest.onreadystatechange = function() {
@@ -26,13 +26,15 @@ function getTeamScores(tKey, eKey) {
           } 
         } 
        if(isTeam == "blue") {
-            currentTeamScore = teamScoreRequestObj[j].alliances.blue.score;
-            console.log(currentTeamScore);
-            teamTotal += parseInt(currentTeamScore);
+            console.log(teamScoreRequestObj[j].score_breakdown.blue);
+//            currentTeamScore = teamScoreRequestObj[j].alliances.blue.score;
+//            console.log(currentTeamScore);
+//            teamTotal += parseInt(currentTeamScore);
         } else {
-            currentTeamScore = teamScoreRequestObj[j].alliances.red.score;
-            console.log(currentTeamScore)
-            teamTotal += parseInt(currentTeamScore);
+            console.log(teamScoreRequestObj[j].score_breakdown.red);
+//            currentTeamScore = teamScoreRequestObj[j].alliances.red.score;
+//            console.log(currentTeamScore)
+//            teamTotal += parseInt(currentTeamScore);
         }
             isTeam = "";
         }

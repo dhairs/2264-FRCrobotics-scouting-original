@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Tomorrow&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 
 html {
     height: 100%;
@@ -203,9 +204,20 @@ a.normal {
 }
 
 .location {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 2.5vw;
+    margin-top: 3vh;
+    color: rgb(20, 20, 20);
 }
 
+.teamCountry {
+    font-family: 'Lato', sans-serif;
+    font-size: 2vw;
+    margin-bottom: 3vh;
+    margin-top: 1.5vh;
+    color: rgb(66, 66, 66);
+}
 .rightSize {
     width : device-width;
     overflow-x: hidden;

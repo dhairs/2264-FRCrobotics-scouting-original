@@ -76,6 +76,7 @@ setTimeout(function() {
           $('.websiteButton').fadeIn(3000);
           $('.nameHeading').fadeIn(1500);
           $('.location').fadeIn(1500);
+          $('.teamCountry').fadeIn(1600);
           }
           
     

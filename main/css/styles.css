@@ -174,19 +174,21 @@ a.normal {
 }
 
 .websiteButton {
-/*  background-color: #4CAF50;  Green */
+  margin-top: 10vh;
+  background-color: white;  /*Green */
   border: none;
-  color: white;
-  padding: 15px 32px;
+  color: black;
+  padding: 3vw 7vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  mix-blend-mode: difference;
+  font-size: 2vw;
+  margin-bottom: 10vh;
+  font-family: 'Roboto Mono', monospace;
 }
 
-.name-heading {
-    font-size: 20vw;
+.nameHeading {
+  font-size: 20vw;
   font-family: 'Tomorrow', sans-serif;
 }
 

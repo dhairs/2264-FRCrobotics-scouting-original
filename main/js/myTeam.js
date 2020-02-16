@@ -61,18 +61,22 @@ function getMyTeamInfo(){
       if (this.readyState == 4 && this.status == 200){
 
           infoRequestObj = JSON.parse(this.responseText);
+          if(infoRequestObj != undefined){
           var a;
           var titleNameHeading = document.getElementById('nameHeading');
 //          var websiteButton = document.getElementById('button');
 //          websiteButton.textContent = "Visit team Website";
           titleNameHeading.innerHTML = infoRequestObj.nickname;
           console.log(infoRequestObj);
+          $('.websiteButton').fadeIn(3000);
+          $('.nameHeading').fadeIn(1500);
+          }
           
     
 
       }
     }
-
+ 
 }
 
 function redirToWebsite(){

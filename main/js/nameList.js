@@ -59,6 +59,7 @@ function checkParams(){
 function makeList(x){
   $('ul').empty()
   teamArray = [];
+  teamNumArray = [];
   var teamRequest = new XMLHttpRequest();
   teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x + "/teams" , true);
   teamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -72,6 +73,7 @@ function makeList(x){
           for (a = 0; a < teamRequestObj.length; a++) {
             teamArray.push(teamRequestObj[a].nickname);
             tKeyArray.push(teamRequestObj[a].key);
+            teamNumArray.push(teamRequestObj[a].team_number);
         }
         teamList();
 

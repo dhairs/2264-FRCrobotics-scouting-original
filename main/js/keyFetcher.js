@@ -12,6 +12,7 @@ var eNameRequestObj
 var currentEventKey;
 var currentEventNum;
 var b;
+var teamNumArray = [];
 // var Table = document.getElementById("list-items");
 
 
@@ -35,6 +36,7 @@ eNameRequest.onreadystatechange = function() {
               for(c = 0; c < eNameRequestObj.length; c++) {
               eNameArray.push(eNameRequestObj[c].name);
               eKeyArray.push(eNameRequestObj[c].key);
+              // teamNumArray.push(eNameRequestObj[c].team_number);
           }
 
           // Takes all the elements from the array and adds them to the form (drop-down)

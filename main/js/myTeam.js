@@ -66,10 +66,12 @@ setTimeout(function() {
           var a;
           var titleNameHeading = document.getElementById('nameHeading');
           var teamLocation = document.getElementById('location');   
+          var teamCountry = document.getElementById('teamCountry');
 //          var websiteButton = document.getElementById('button');
 //          websiteButton.textContent = "Visit team Website";
           titleNameHeading.innerHTML = infoRequestObj.nickname;
-          teamLocation.innerHTML = infoRequestObj.city;
+          teamLocation.innerHTML = infoRequestObj.city + ', ' + infoRequestObj.state_prov;
+          teamCountry.innerHTML = infoRequestObj.country;
           console.log(infoRequestObj);
           $('.websiteButton').fadeIn(3000);
           $('.nameHeading').fadeIn(1500);

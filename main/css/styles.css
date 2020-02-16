@@ -31,6 +31,10 @@ background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50
   animation: AnimationName 10s ease infinite;
 }
 
+h5 {
+    margin-top: 0;
+}
+
 .myTeamSubmit {
     height: 3vh;
 }

@@ -13,6 +13,7 @@ var currentEventKey;
 var currentEventNum;
 var b;
 var teamNumArray = [];
+var dummyEventArray = [];
 // var Table = document.getElementById("list-items");
 
 
@@ -36,14 +37,16 @@ eNameRequest.onreadystatechange = function() {
               for(c = 0; c < eNameRequestObj.length; c++) {
               eNameArray.push(eNameRequestObj[c].name);
               eKeyArray.push(eNameRequestObj[c].key);
+              dummyEventArray.push(eNameRequestObj[c].name);
+              dummyEventArray.sort();
               // teamNumArray.push(eNameRequestObj[c].team_number);
           }
 
           // Takes all the elements from the array and adds them to the form (drop-down)
           for(c = 0; c < eNameRequestObj.length; c++) {
               var option = document.createElement('option');
-              option.textContent = eNameArray[c];
-              option.value = eNameArray[c];
+              option.textContent = dummyEventArray[c];
+              option.value = dummyEventArray[c];
               form.appendChild(option);
           }
 

@@ -1,4 +1,5 @@
 // Variable Declaration
+var eventKey;
 var name;
 var u = 0;
 var teamArray = [];
@@ -22,7 +23,7 @@ function teamList() {
 
         // Get the specific team name from the array
         name = teamArray[u];
-        // key = tKeyArray[u];
+        key = tKeyArray[u];
 
         // Make an li
         let tr = document.createElement('tr');
@@ -35,7 +36,7 @@ function teamList() {
         tr.appendChild(teamNamesTableVals);
         tr.appendChild(teamScores);
         teamNamesTableVals.innerHTML = name;
-        // teamScores.innerHTML = key;
+        teamScores.innerHTML = getTeamScores(key, "2020abca");
         u++;
   });
   teamArray = [];
@@ -61,6 +62,7 @@ function makeList(x){
   $('ul').empty()
   teamArray = [];
   teamNumArray = [];
+  eventKey = x;
   var teamRequest = new XMLHttpRequest();
   teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x + "/teams" , true);
   teamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");

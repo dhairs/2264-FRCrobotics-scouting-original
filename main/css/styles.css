@@ -198,6 +198,9 @@ a.normal {
   margin-top: 10px;
 }
 
+.location {
+    font-family: 'Roboto Mono', monospace;
+}
 
 .rightSize {
     width : device-width;

@@ -4,7 +4,6 @@ var blueKeyArray;
 var isTeam = "";
 var teamTotal = 0;
 var teamAvg;
-var teamTotalInt;
 var currentTeamScore;
 var numOfMatches;
 

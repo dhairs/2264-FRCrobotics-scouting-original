@@ -189,7 +189,7 @@ a.normal {
 
 .nameHeading {
   width: device-width;
-  font-size: 20vw;
+  font-size: 15vw;
   font-family: 'Tomorrow', sans-serif;
   
 }
@@ -199,7 +199,10 @@ a.normal {
 }
 
 
-
+.rightSize {
+    width : device-width;
+    overflow-x: hidden;
+}
 .title-heading {
     position: absolute;
     text-align: center;

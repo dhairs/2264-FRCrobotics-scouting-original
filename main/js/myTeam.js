@@ -62,8 +62,8 @@ function getMyTeamInfo(){
 
           infoRequestObj = JSON.parse(this.responseText);
           var a;
-          var titleNameHeading = document.getElementsById('nameHeading');
-          titleNameHeading.innerHTML = "epic";
+          var titleNameHeading = document.getElementById('nameHeading');
+          titleNameHeading.innerHTML = infoRequestObj.nickname;
           console.log(infoRequestObj)
           
     

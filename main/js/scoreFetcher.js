@@ -10,7 +10,7 @@ var teamScoreRequestObj
 
 // getTeamScores("frc1073", "2020week0");
 function getTeamScores(tKey, eKey) {
-    setTimeout(function(){
+    // setTimeout(function(){
   teamAvg = 0;
   var teamScoreRequest = new XMLHttpRequest();
   teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
@@ -44,11 +44,13 @@ function getTeamScores(tKey, eKey) {
         }
       numOfMatches = teamScoreRequestObj.length;
       teamAvg = teamTotal/numOfMatches;
-      // console.log(teamAvg);
+      console.log(teamAvg);
+      return teamAvg;
+      console.log(teamAvg);
       // return teamAvg;
   }
   // teamAvg = teamTotal/numOfMatches;
   // console.log(teamAvg);
-}, 50)
-    return teamAvg;
+// }, 0)
+
 }

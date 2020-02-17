@@ -7,41 +7,146 @@ var frcID;
 var url = new URL(window.location.href);
 var tKeyArray = [];
 var sortedTeamArray = [];
+var keyu;
+var keya;
+var score;
+var b;
+var blueKeyArray;
+var isTeam = "";
+var teamTotal = 0;
+var teamAvg;
+var currentTeamScore;
+var numOfMatches;
+var teamScoreRequestObj;
+var i;
+var scoreArray;
+var done = false;
+
+function reset() {
+  u = 0;
+  scoreArray = [];
+  done = false;
+}
+
 // Takes TeamArray items and puts them onto the site
 function teamList() {
-    u = 0;
-
-    ul = document.createElement('ul');
+      console.log(teamArray);
+      reset()
 
     // For Each item in the Team Array, make an table row
-    teamArray.forEach(function () {
+    function getKeys() {
+      if(u < teamArray.length && done == false) {
         $('.table').hide();
         $('.loading').fadeOut(600);
         $('.table').fadeIn(1000);
         // Add the tr to the table
-        var table = document.getElementById('table-items')
-
         // Get the specific team name from the array
+        keyu = tKeyArray[u];
         name = teamArray[u];
-        key = tKeyArray[u];
-
+        console.log(name);
         // Make an li
-        let tr = document.createElement('tr');
-        let teamNamesTableVals = document.createElement('td');
-        let teamScores = document.createElement('td');
 
-        tr.classList.toggle('inline-centering');
+        getTeamScores(keyu, "2020week0");
+      } else {
+        putItems();
+      }
 
-        table.appendChild(tr);
-        tr.appendChild(teamNamesTableVals);
-        tr.appendChild(teamScores);
-        score = getTeamScores(key, "2020week0");
-        teamNamesTableVals.innerHTML = name;
-        teamScores.innerHTML = score;
-        u++;
-  });
-  teamArray = [];
+  }
+    getKeys()
+
+
+
+
+
+
+    function getTeamScores(tKey, eKey) {
+        // setTimeout(function(){
+      teamAvg = 0;
+      var teamScoreRequest = new XMLHttpRequest();
+      teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
+      teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+      teamScoreRequest.send();
+      teamScoreRequest.onreadystatechange = function() {
+        teamTotal = 0;
+        teamScoreRequestObj = JSON.parse(this.responseText);
+        var j;
+        for (j = 0; j < teamScoreRequestObj.length; j++) {
+          blueKeyArray = teamScoreRequestObj[j].alliances.blue.team_keys;
+          for(b = 0; b < 2; b++) {
+              if(blueKeyArray[b] == tKey) {
+                  isTeam = "blue";
+              } else {
+
+              }
+            }
+           if(isTeam == "blue") {
+                // console.log(teamScoreRequestObj[j].score_breakdown.blue);
+                teamTotal += teamScoreRequestObj[j].score_breakdown.blue.totalPoints;
+    //            currentTeamScore = teamScoreRequestObj[j].alliances.blue.score;
+    //            console.log(currentTeamScore);
+    //            teamTotal += parseInt(currentTeamScore);
+            } else {
+                // console.log(teamScoreRequestObj[j].score_breakdown.red);
+                teamTotal += teamScoreRequestObj[j].score_breakdown.red.totalPoints;
+    //            currentTeamScore = teamScoreRequestObj[j].alliances.red.score;
+    //            console.log(currentTeamScore)
+    //            teamTotal += parseInt(currentTeamScore);
+            }
+                isTeam = "";
+            }
+          numOfMatches = teamScoreRequestObj.length;
+          teamAvg = teamTotal/numOfMatches;
+          scoreArray.push(teamAvg);
+          console.log(score);
+          u++;
+          getKeys();
+
+      }
+      // teamAvg = teamTotal/numOfMatches;
+      // console.log(teamAvg);
+    // }, 0)
+
+    }
+
+    function putItems() {
+
+      if(done == false ) {
+      done = true;
+      var table = document.getElementById('table-items')
+      setTimeout(function(){
+
+      for(i=0; i < 27; i++) {
+      let tr = document.createElement('tr');
+      let teamNamesTableVals = document.createElement('td');
+      let teamScores = document.createElement('td');
+
+      tr.classList.toggle('inline-centering');
+
+      table.appendChild(tr);
+      tr.appendChild(teamNamesTableVals);
+      tr.appendChild(teamScores);
+
+      name = teamArray[i];
+      score = scoreArray[2*i];
+
+      teamNamesTableVals.innerHTML = name;
+      teamScores.innerHTML = score;
+    }
+  }, 3000); } else {
+
+  }
 }
+}
+
+
+
+
+
+
+
+
+
+
 var urlKey;
 var urlName;
 function checkParams(){
@@ -58,6 +163,13 @@ function checkParams(){
     makeList(listID);
   }
 }
+
+
+
+
+
+
+
 
 function makeList(x){
   $('ul').empty()
@@ -85,55 +197,6 @@ function makeList(x){
     }
 
 }
-
-
-// // var u;
-// function nameList(){
-//   if(nameArray >= 4239){
-//     console.log(nameArray);
-    // nameArray.forEach(function (name) {
-    //   ul = document.createElement('ul');
-    //   document.getElementById('myItemList').appendChild(ul);
-    //   for(u = 0; u < nameArray.length; u++){
-    //     let li = document.createElement('li');
-    //     ul.classList.add('listStuff');
-    //     li.classList.toggle('inline-centering');
-    //     ul.appendChild(li);
-    //
-    //     li.innerHTML += name;
-    //     console.log(nameArray);
-    //   }
-    // });
-//
-//   }
-//
-// //   // console.log(nameArray + "THIS IS EPIC");
-// //
-// //   // Make a container element for the list
-// //    listContainer = document.createElement('div'),
-// //    // Make the list
-// //    listElement = document.createElement('ul'),
-// //    // Set up a loop that goes through the items in listItems one at a time
-// //    numberOfListItems = nameArray.length,
-// //    listItem,
-// //    i;
-// //
-// //    // Add it to the page
-// //    document.getElementsByTagName('body')[0].appendChild(listContainer);
-// //    listContainer.appendChild(listElement);
-// //
-// //    for (i = 0; i < numberOfListItems; ++i) {
-// //        // create an item for each one
-// //        listItem = document.createElement('li');
-// //
-// //        // Add the item text
-// //        listItem.innerHTML = listData[i];
-// //
-// //        // Add listItem to the listElement
-// //        listElement.appendChild(listItem);
-// //    }
-// // }
-// // }
 
 function waitTillRun(){
   setTimeout(function(){

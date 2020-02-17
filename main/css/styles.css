@@ -32,6 +32,26 @@ background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50
   animation: AnimationName 10s ease infinite;
 }
 
+.github-img {
+    width: 10%;
+    height: auto;
+}
+
+.facebook-img {
+    width: 10%;
+    height: auto;
+}
+
+.instagram-img {
+    width: 10%;
+    height: auto;
+}
+
+.twitter-img {
+    width: 10%;
+    height: auto;
+}
+
 h5 {
     margin-top: 0;
 }

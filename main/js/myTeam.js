@@ -10,6 +10,11 @@ var socialMediaRequest;
 var socialMediaRequestObj;
 var z;
 var socialMediaRequestTypeObj;
+var facebookIdentifier;
+var instagramIdentifier;
+var githubIdentifier;
+var twitterIdentifier;
+var youtubeIdentifier;
 
 
 date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30));
@@ -135,6 +140,8 @@ setTimeout(function() {
 
 
 function retrieveSocialMedia(){
+    setTimeout(function (){
+    
     socialMediaRequest = new XMLHttpRequest();
     socialMediaRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/social_media", true);
     socialMediaRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -147,24 +154,40 @@ function retrieveSocialMedia(){
                 console.log(socialMediaRequestObj[z].foreign_key);
                 var type = socialMediaRequestObj[z].type;
                 var profile = document.getElementById(type);
-                var urlIdentifier;
+
                 if(type == 'twitter-profile'){
                     $('.twitter').fadeIn(2000);
+                    twitterIdentifier = socialMediaRequestObj[z].foreign_key;
                 } else if (type == 'facebook-profile'){
                     $('.facebook').fadeIn(2000);
+                    facebookIdentifier = socialMediaRequestObj[z].foreign_key;
                 } else if(type == 'github-profile'){
                     $('.github').fadeIn(2000);
+                    githubIdentifier = socialMediaRequestObj[z].foreign_key;
                 }
 //                profile.innerHTML = socialMediaRequestObj[z].foreign_key;
             }
     }
     return(socialMediaRequestObj);
 }
+    }, 1000)
 }
 
 function redirToWebsite(){
     console.log('this is the redirect code')
     window.open(infoRequestObj.website, 'blank');
+}
+
+function facebookRedirect(){
+    window.open('https://facebook.com/' + facebookIdentifier);
+}
+
+function githubRedirect(){
+    window.open('https://github.com/' + githubIdentifier);
+}
+
+function twitterRedirect(){
+    window.open('https://twitter.com/' + twitterIdentifier);
 }
 
 $(document).ready(checkCookie());

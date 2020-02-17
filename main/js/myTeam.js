@@ -6,8 +6,6 @@ var date = new Date();
 var eParticapatedRequestObj;
 var awardRequestObj;
 var yearsRequestObj;
-var socialMediaRequest;
-var socialMediaRequestObj;
 
 date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30));
 //date.setTime(date.getTime() + (2592000000));
@@ -129,8 +127,6 @@ setTimeout(function() {
 }, 100);
 
 }
-
-function retrieveSocialMedia
 
 function redirToWebsite(){
     console.log('this is the redirect code')

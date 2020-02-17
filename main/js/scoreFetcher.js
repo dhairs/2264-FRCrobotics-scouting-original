@@ -7,7 +7,7 @@ var teamAvg;
 var currentTeamScore;
 var numOfMatches;
 
-getTeamScores("frc1482", "2019abca");
+getTeamScores("frc1073", "2020week0");
 function getTeamScores(tKey, eKey) {
     setTimeout(function(){
   var teamScoreRequest = new XMLHttpRequest();
@@ -23,8 +23,8 @@ function getTeamScores(tKey, eKey) {
       for(b = 0; b < 2; b++) {
           if(blueKeyArray[b] == tKey) {
               isTeam = "blue";
-          } 
-        } 
+          }
+        }
        if(isTeam == "blue") {
             console.log(teamScoreRequestObj[j].score_breakdown.blue);
 //            currentTeamScore = teamScoreRequestObj[j].alliances.blue.score;

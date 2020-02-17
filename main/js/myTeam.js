@@ -8,6 +8,9 @@ var awardRequestObj;
 var yearsRequestObj;
 var socialMediaRequest;
 var socialMediaRequestObj;
+var z;
+var socialMediaRequestTypeObj;
+
 
 date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30));
 //date.setTime(date.getTime() + (2592000000));
@@ -130,7 +133,26 @@ setTimeout(function() {
 
 }
 
-function retrieveSocialMedia(){}
+
+function retrieveSocialMedia(){
+    socialMediaRequest = new XMLHttpRequest();
+    socialMediaRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/social_media", true);
+    socialMediaRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+    socialMediaRequest.send();
+    
+    socialMediaRequest.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+        socialMediaRequestObj = JSON.parse(this.responseText);
+            for(z = 0; z < socialMediaRequestObj.length; z++){
+                console.log(socialMediaRequestObj[z].foreign_key);
+                var type = socialMediaRequestObj[z].type;
+                var profile = document.getElementById(type);
+                profile.innerHTML = socialMediaRequestObj[z].foreign_key;
+            }
+    }
+    return(socialMediaRequestObj);
+}
+}
 
 function redirToWebsite(){
     console.log('this is the redirect code')
@@ -141,4 +163,5 @@ $(document).ready(checkCookie());
 $(document).ready(workCookie());
 $(document).ready(getMyTeamInfo());
 $(document).ready(yearsFunc());
+$(document).ready(retrieveSocialMedia());
 

@@ -12,7 +12,7 @@ function teamList() {
     u = 0;
 
     ul = document.createElement('ul');
-    
+
     // For Each item in the Team Array, make an table row
     teamArray.forEach(function () {
         $('.table').hide();
@@ -36,7 +36,7 @@ function teamList() {
         tr.appendChild(teamNamesTableVals);
         tr.appendChild(teamScores);
         teamNamesTableVals.innerHTML = name;
-        teamScores.innerHTML = getTeamScores(key, "2020abca");
+        teamScores.innerHTML = getTeamScores(key, "2020week0");
         u++;
   });
   teamArray = [];
@@ -53,7 +53,7 @@ function checkParams(){
     urlKey = eKeyArray.indexOf(listID);
     urlName = eNameArray[urlKey];
     document.getElementById('event-name').innerHTML = urlName;
- 
+
     makeList(listID);
   }
 }

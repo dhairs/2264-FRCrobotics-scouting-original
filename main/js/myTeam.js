@@ -1,9 +1,11 @@
 var infoRequest;
+var yearsRequest;
 var infoRequestObj;
 var cookieNumber;
 var date = new Date();
 var eParticapatedRequestObj;
 var awardRequestObj;
+var yearsRequestObj;
 
 date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30));
 //date.setTime(date.getTime() + (2592000000));
@@ -57,11 +59,12 @@ function getMyTeamInfo(){
 setTimeout(function() {
 //  cookieNumber = "2264";
   var infoRequest = new XMLHttpRequest();
+  
   infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber, true);
   infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   infoRequest.send();
-
-
+  
+  
   infoRequest.onreadystatechange = function() {
 
       if (this.readyState == 4 && this.status == 200){
@@ -90,13 +93,36 @@ setTimeout(function() {
 
       }
     }
-
-
+  
+  
 
 
 
 
 }, 100);
+
+}
+
+function yearsFunc(){
+    yearsRequest = new XMLHttpRequest();
+    yearsRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/years_participated", true);
+  yearsRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+  yearsRequest.send();
+    
+    yearsRequest.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200){
+        yearsRequestObj = JSON.parse(this.responseText);
+        
+        var yearsParticipated = document.getElementById('yearsParticipated');
+        var firstYear = yearsRequestObj[0];
+        var yearLength = yearsRequestObj.length;
+        var lastYear = yearsRequestObj[yearLength-1];
+        yearsParticipated.innerHTML = "Competing Since " + firstYear + ' - ' + lastYear;
+        console.log(yearsRequestObj);
+    
+    }
+}
+
 
 }
 
@@ -108,3 +134,5 @@ function redirToWebsite(){
 $(document).ready(checkCookie());
 $(document).ready(workCookie());
 $(document).ready(getMyTeamInfo());
+$(document).ready(yearsFunc());
+

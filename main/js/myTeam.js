@@ -2,6 +2,8 @@ var infoRequest;
 var infoRequestObj;
 var cookieNumber;
 var date = new Date();
+var eParticapatedRequestObj;
+var awardRequestObj;
 
 date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30));
 //date.setTime(date.getTime() + (2592000000));
@@ -28,11 +30,11 @@ function checkCookie(){
                 }
             }
 
-    
+
 }
 
 function workCookie(){
-    
+
    setTimeout(function(){
     if(cookieNumber.length >= 2){
         $('.teamNumForm').hide();
@@ -49,23 +51,26 @@ function workCookie(){
  function deleteCookie() {
         createCookie("", "epic", -1);
     }
-	
+
 
 function getMyTeamInfo(){
 setTimeout(function() {
-  infoRequest = new XMLHttpRequest();
+  // cookieNumber = "2264";
+  var infoRequest = new XMLHttpRequest();
   infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber, true);
   infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   infoRequest.send();
-    
+
+
   infoRequest.onreadystatechange = function() {
+
       if (this.readyState == 4 && this.status == 200){
 
           infoRequestObj = JSON.parse(this.responseText);
           if(infoRequestObj != undefined){
           var a;
           var titleNameHeading = document.getElementById('nameHeading');
-          var teamLocation = document.getElementById('location');   
+          var teamLocation = document.getElementById('location');
           var teamCountry = document.getElementById('teamCountry');
 //          var websiteButton = document.getElementById('button');
 //          websiteButton.textContent = "Visit team Website";
@@ -78,12 +83,49 @@ setTimeout(function() {
           $('.location').fadeIn(1500);
           $('.teamCountry').fadeIn(1600);
           }
-          
-    
+
+
 
       }
     }
+
+    var eParticapatedRequest = new XMLHttpRequest();
+    eParticapatedRequest.open("GET", "​https://www.thebluealliance.com/api/v3/team/frc2264/events/simple");
+    eParticapatedRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+    eParticapatedRequest.send();
+
+    eParticapatedRequest.onreadystatechange = function() {
+
+        eParticapatedRequestObj = JSON.parse(eParticapatedRequest.responseText);
+        var f;
+
+        for(f = 0; f < eParticapatedRequest.length; f++) {
+
+          var awardRequest = new XMLHttpRequest();
+
+          var currEKey = eParticapatedRequestObj[f].key;
+
+          awardRequest.open("GET", "​https://www.thebluealliance.com/api/v3/team​/frc2264​/event​/" + currEKey +  "​/awards");
+          awardRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+          awardRequest.send();
+
+          awardRequest.onreadystatechange = function() {
+              awardRequestObj = JSON.parse(this.responseText);
+              var d;
+              for(d = 0; d<awardRequestObj.length; d++) {
+                console.log(awardRequestObj[d].name);
+              }
+
+            }
+          }
+
+        }
+
+
+
+
 }, 100);
+
 }
 
 function redirToWebsite(){

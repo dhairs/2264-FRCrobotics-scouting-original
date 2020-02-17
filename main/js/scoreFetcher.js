@@ -7,7 +7,7 @@ var teamAvg;
 var currentTeamScore;
 var numOfMatches;
 
-getTeamScores("frc1073", "2020week0");
+// getTeamScores("frc1073", "2020week0");
 function getTeamScores(tKey, eKey) {
     setTimeout(function(){
   var teamScoreRequest = new XMLHttpRequest();
@@ -26,12 +26,14 @@ function getTeamScores(tKey, eKey) {
           }
         }
        if(isTeam == "blue") {
-            console.log(teamScoreRequestObj[j].score_breakdown.blue);
+            // console.log(teamScoreRequestObj[j].score_breakdown.blue);
+            teamTotal += teamScoreRequestObj[j].score_breakdown.blue.totalPoints;
 //            currentTeamScore = teamScoreRequestObj[j].alliances.blue.score;
 //            console.log(currentTeamScore);
 //            teamTotal += parseInt(currentTeamScore);
         } else {
-            console.log(teamScoreRequestObj[j].score_breakdown.red);
+            // console.log(teamScoreRequestObj[j].score_breakdown.red);
+            teamTotal += teamScoreRequestObj[j].score_breakdown.red.totalPoints;
 //            currentTeamScore = teamScoreRequestObj[j].alliances.red.score;
 //            console.log(currentTeamScore)
 //            teamTotal += parseInt(currentTeamScore);
@@ -43,6 +45,8 @@ function getTeamScores(tKey, eKey) {
       console.log(teamAvg);
 
   }
+  // teamAvg = teamTotal/numOfMatches;
+  // console.log(teamAvg);
   return teamAvg;
     }, 500)
 }

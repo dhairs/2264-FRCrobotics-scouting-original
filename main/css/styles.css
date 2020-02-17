@@ -36,6 +36,10 @@ h5 {
     margin-top: 0;
 }
 
+.gray {
+    color: gray;
+}
+
 .myTeamSubmit {
   background-color: white;  /*Green */
   border: none;
@@ -241,6 +245,11 @@ a.normal {
 
 .blank_space {
   margin-top: 10px;
+}
+
+.yearsParticipated {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
 }
 
 .location {

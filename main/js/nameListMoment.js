@@ -30,6 +30,7 @@ function getKeys() {
 //Get the team scores
 function getTeamScores (tKey, eKey) {
     //Open the Request
+    console.log("running");
     var teamScoreRequest = new XMLHttpRequest();
     teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
     teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");

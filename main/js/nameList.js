@@ -28,26 +28,22 @@ function reset() {
   done = false;
 }
 
-// Takes TeamArray items and puts them onto the site
+
 function teamList() {
       console.log(teamArray);
       reset()
 
-    // For Each item in the Team Array, make an table row
     function getKeys() {
       if(u < teamArray.length && done == false) {
         $('.table').hide();
-        $('.loading').fadeOut(600);
-        $('.table').fadeIn(1000);
-        // Add the tr to the table
-        // Get the specific team name from the array
+
         keyu = tKeyArray[u];
         name = teamArray[u];
         console.log(name);
-        // Make an li
 
-        getTeamScores(keyu, "2020week0");
+        getTeamScores(keyu, eventk);
       } else {
+        console.log("uhoh");
         putItems();
       }
 
@@ -97,7 +93,7 @@ function teamList() {
           numOfMatches = teamScoreRequestObj.length;
           teamAvg = teamTotal/numOfMatches;
           scoreArray.push(teamAvg);
-          console.log(score);
+          console.log(teamAvg);
           u++;
           getKeys();
 
@@ -115,7 +111,7 @@ function teamList() {
       var table = document.getElementById('table-items')
       setTimeout(function(){
 
-      for(i=0; i < 27; i++) {
+      for(i=0; i < scoreArray.length/2; i++) {
       let tr = document.createElement('tr');
       let teamNamesTableVals = document.createElement('td');
       let teamScores = document.createElement('td');
@@ -131,6 +127,9 @@ function teamList() {
 
       teamNamesTableVals.innerHTML = name;
       teamScores.innerHTML = score;
+
+      $('.loading').fadeOut(600);
+      $('.table').fadeIn(1000);
     }
   }, 3000); } else {
 
@@ -166,15 +165,17 @@ function checkParams(){
 
 
 
-
+var eventk;
 
 
 
 
 function makeList(x){
+  eventk = x;
   $('ul').empty()
   teamArray = [];
   teamNumArray = [];
+  tKeyArray = [];
   eventKey = x;
   var teamRequest = new XMLHttpRequest();
   teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x + "/teams" , true);

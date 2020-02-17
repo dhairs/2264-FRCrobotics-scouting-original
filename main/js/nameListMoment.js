@@ -12,26 +12,46 @@ var teamAvg; //The Avg of a team, gets reset every time a new team is sent to ge
 
 var teamScoreRequestObj; //The parsed JSON file of getTeamScores
 var keyk; //A Variable that cycles from 0-2 to cycle througha and check which team contains the key of the target team
-
+var teleOpScore;
 var teamAllianceArray= []; //A variable that saves what alliance a team is on
 var blueKeyArray = []; //Array with all the blue team keys
 var eventScoreArray = []; //Array with all scores of each team from ana event
+var avgScoreArray = []; //Array of averagre scores
+var teleOpArray = [];
+var avgTeleOpArray = [];
 //Reset stuff
+var i;
+var u;
+
+var avg; //Average value for a given team
+var teleOpTotal;
+var teleOpAvg;
+
 function reset() {
     index = 0;
     eventScoreArray = [];
+    avgScoreArray = [];
+    avgTeleOpArray = [];
+    teleOpArray = [];
 }
 
 //Get the new Team Key to work with
 function getKeys() {
-  $('.table').hide();
-  for(index = 0; index < teamArray.length; index++) {
+  // $('.table').hide();
+  // for(index = 0; index < teamArray.length; index++) {
+  if(index < teamArray.length) {
       currentTeam = tKeyArray[index];
       console.log(index);
       console.log(currentTeam);
       console.log(currentEvent);
       getTeamScores(currentTeam, currentEvent);
-}
+      index++;
+    } else {
+      console.log("done");
+      console.log(avgScoreArray);
+      putItems();
+    }
+// }
 }
 //Get the team scores
 function getTeamScores (tKey, eKey) {
@@ -46,6 +66,9 @@ function getTeamScores (tKey, eKey) {
     teamTotal = 0;
     teamAvg = 0;
     teamAllianceArray = [];
+    teleOpAvg = 0;
+    teleOpTotal = 0;
+    teleOpArray = [];
 
     teamScoreRequest.onload = function() {
         teamScoreRequestObj = JSON.parse(this.responseText);
@@ -57,6 +80,7 @@ function getTeamScores (tKey, eKey) {
                 if(tKey == blueKeyArray[keyk]) {
                     teamAllianceArray.push("blue");
                     eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
+                    teleOpArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
 
                 }
             }
@@ -66,16 +90,72 @@ function getTeamScores (tKey, eKey) {
             } else {
                 teamAllianceArray.push("red");
                 eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.red.score);
+                teleOpArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
             }
+
           }
-          console.log(tKey)
-          console.log(teamAllianceArray);
+
+          for(var i = 0; i < eventScoreArray.length; i++ ){
+              teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
+          }
+          var avg = teamTotal/eventScoreArray.length;
+
+          for(var u = 0; u < teleOpArray.length; u++ ){
+              teleOpTotal += parseInt(teleOpArray[u], 10 ); //don't forget to add the base
+          }
+          var teleOpAvg = teleOpTotal/teleOpArray.length;
+          console.log(teleOpArray);
+          console.log(eventScoreArray);
+          console.log(avg);
+          console.log(teleOpAvg);
+
+          avgScoreArray.push(avg);
+          avgTeleOpArray.push(teleOpAvg);
+
+          eventScoreArray = [];
           teamAllianceArray = [];
+          teleOpArray = [];
+          getKeys();
     }
 
 }
 
+var table;
+var name;
+var score;
 
+function putItems() {
+  console.log("Aye aye capn");
+    table = document.getElementById('table-items');
+    for(p=0; p < avgScoreArray.length; p++) {
+      console.log("spicy")
+        var tr = document.createElement('tr');
+        var teamNames = document.createElement('td');
+        var teamScores = document.createElement('td');
+        var teleOpScores = document.createElement('td');
+
+        tr.classList.toggle('inline-centering');
+
+        table.appendChild(tr);
+        tr.appendChild(teamNames);
+        tr.appendChild(teamScores);
+        tr.appendChild(teleOpScores);
+
+        name = teamArray[p];
+        score = avgScoreArray[p];
+        teleOpScore = avgTeleOpArray[p];
+        
+
+        teamNames.innerHTML = name;
+        teamScores.innerHTML = score;
+        teleOpScores.innerHTML = teleOpScore;
+        $('.loading').fadeOut(600);
+        $('.table').fadeIn(1000);
+  }
+
+
+
+}
 
 var urlKey;
 var urlName;

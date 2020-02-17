@@ -72,8 +72,10 @@ setTimeout(function() {
           var titleNameHeading = document.getElementById('nameHeading');
           var teamLocation = document.getElementById('location');
           var teamCountry = document.getElementById('teamCountry');
+          var teamNameTitle = document.getElementById('myTeamTitle');
 //          var websiteButton = document.getElementById('button');
 //          websiteButton.textContent = "Visit team Website";
+          teamNameTitle.innerHTML = "Team: " + infoRequestObj.nickname;
           titleNameHeading.innerHTML = infoRequestObj.nickname;
           teamLocation.innerHTML = infoRequestObj.city + ', ' + infoRequestObj.state_prov;
           teamCountry.innerHTML = infoRequestObj.country;

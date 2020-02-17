@@ -55,7 +55,7 @@ function workCookie(){
 
 function getMyTeamInfo(){
 setTimeout(function() {
-  // cookieNumber = "2264";
+  cookieNumber = "2264";
   var infoRequest = new XMLHttpRequest();
   infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber, true);
   infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");

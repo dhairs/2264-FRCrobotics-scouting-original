@@ -35,8 +35,9 @@ function teamList() {
         table.appendChild(tr);
         tr.appendChild(teamNamesTableVals);
         tr.appendChild(teamScores);
+        score = getTeamScores(key, "2020week0");
         teamNamesTableVals.innerHTML = name;
-        teamScores.innerHTML = getTeamScores(key, "2020week0");
+        teamScores.innerHTML = score;
         u++;
   });
   teamArray = [];

@@ -130,7 +130,7 @@ setTimeout(function() {
 
 }
 
-function retrieveSocialMedia
+function retrieveSocialMedia(){}
 
 function redirToWebsite(){
     console.log('this is the redirect code')

@@ -147,7 +147,15 @@ function retrieveSocialMedia(){
                 console.log(socialMediaRequestObj[z].foreign_key);
                 var type = socialMediaRequestObj[z].type;
                 var profile = document.getElementById(type);
-                profile.innerHTML = socialMediaRequestObj[z].foreign_key;
+                var urlIdentifier;
+                if(type == 'twitter-profile'){
+                    $('.twitter').fadeIn(2000);
+                } else if (type == 'facebook-profile'){
+                    $('.facebook').fadeIn(2000);
+                } else if(type == 'github-profile'){
+                    $('.github').fadeIn(2000);
+                }
+//                profile.innerHTML = socialMediaRequestObj[z].foreign_key;
             }
     }
     return(socialMediaRequestObj);

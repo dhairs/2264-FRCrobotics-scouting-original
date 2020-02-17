@@ -23,6 +23,11 @@ function main(){
   $('.table').hide();
   $('.loading').hide();
   $('.teamNumForm').hide();
+  $('.twitter').hide();
+  $('.facebook').hide();
+  $('.instagram').hide();
+  $('.youtube').hide();
+  $('.github').hide();
 
   // $('form').show();
   //

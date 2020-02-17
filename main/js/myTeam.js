@@ -104,6 +104,7 @@ setTimeout(function() {
 }
 
 function yearsFunc(){
+setTimeout(function() {
     yearsRequest = new XMLHttpRequest();
     yearsRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/years_participated", true);
   yearsRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -117,12 +118,13 @@ function yearsFunc(){
         var firstYear = yearsRequestObj[0];
         var yearLength = yearsRequestObj.length;
         var lastYear = yearsRequestObj[yearLength-1];
-        yearsParticipated.innerHTML = "Competing Since " + firstYear + ' - ' + lastYear;
+        yearsParticipated.innerHTML = "Competing from " + firstYear + ' - ' + lastYear;
         console.log(yearsRequestObj);
     
     }
 }
 
+}, 100);
 
 }
 

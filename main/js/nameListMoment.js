@@ -15,20 +15,27 @@ var keyk; //A Variable that cycles from 0-2 to cycle througha and check which te
 
 var teamAllianceArray= []; //A variable that saves what alliance a team is on
 var blueKeyArray = []; //Array with all the blue team keys
-
+var eventScoreArray = []; //Array with all scores of each team from ana event
 //Reset stuff
 function reset() {
     index = 0;
+    eventScoreArray = [];
 }
 
 //Get the new Team Key to work with
 function getKeys() {
-    currentTeam = tKeyArray[index];
-    $('.table').hide();
-    getTeamScores(currentTeam, currentEvent);
+  $('.table').hide();
+  for(index = 0; index < teamArray.length; index++) {
+      currentTeam = tKeyArray[index];
+      console.log(index);
+      console.log(currentTeam);
+      console.log(currentEvent);
+      getTeamScores(currentTeam, currentEvent);
+}
 }
 //Get the team scores
 function getTeamScores (tKey, eKey) {
+
     //Open the Request
     console.log("running");
     var teamScoreRequest = new XMLHttpRequest();
@@ -38,15 +45,18 @@ function getTeamScores (tKey, eKey) {
     //Reset the Team Totals and Averages
     teamTotal = 0;
     teamAvg = 0;
+    teamAllianceArray = [];
 
-    teamScoreRequest.onreadystatechange = function() {
+    teamScoreRequest.onload = function() {
         teamScoreRequestObj = JSON.parse(this.responseText);
+        // console.log(teamScoreRequestObj);
         teamAlliance = "";
         for(matchNum = 0; matchNum < teamScoreRequestObj.length; matchNum++) {
             blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
             for(keyk = 0; keyk < 2; keyk++) {
                 if(tKey == blueKeyArray[keyk]) {
                     teamAllianceArray.push("blue");
+                    eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
 
                 }
             }
@@ -55,9 +65,14 @@ function getTeamScores (tKey, eKey) {
 
             } else {
                 teamAllianceArray.push("red");
+                eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.red.score);
             }
           }
+          console.log(tKey)
+          console.log(teamAllianceArray);
+          teamAllianceArray = [];
     }
+
 }
 
 

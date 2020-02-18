@@ -26,8 +26,7 @@ var u;
 var avg; //Average value for a given team
 var teleOpTotal;
 var teleOpAvg;
-
-var redScore; //in order to fix to a certain amt of decimals
+table = document.getElementById('table-items');
 
 function reset() {
     index = 0;
@@ -35,6 +34,7 @@ function reset() {
     avgScoreArray = [];
     avgTeleOpArray = [];
     teleOpArray = [];
+    var p = 0;
 }
 
 //Get the new Team Key to work with
@@ -77,14 +77,12 @@ function getTeamScores (tKey, eKey) {
         // console.log(teamScoreRequestObj);
         teamAlliance = "";
         for(matchNum = 0; matchNum < teamScoreRequestObj.length; matchNum++) {
-            
             blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
             for(keyk = 0; keyk < 2; keyk++) {
                 if(tKey == blueKeyArray[keyk]) {
                     teamAllianceArray.push("blue");
                     eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
                     teleOpArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
-
                 }
             }
             //FIX LINE UNDERNEATH!!!!
@@ -92,7 +90,6 @@ function getTeamScores (tKey, eKey) {
 
             } else {
                 teamAllianceArray.push("red");
-
                 eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.red.score);
                 teleOpArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
             }
@@ -102,24 +99,43 @@ function getTeamScores (tKey, eKey) {
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
           }
-          var avg = (teamTotal/eventScoreArray.length).toFixed(3);
+          var avg = teamTotal/eventScoreArray.length;
 
           for(var u = 0; u < teleOpArray.length; u++ ){
               teleOpTotal += parseInt(teleOpArray[u], 10 ); //don't forget to add the base
           }
-          var teleOpAvg = (teleOpTotal/teleOpArray.length).toFixed(3);
-          console.log(teleOpArray);
-          console.log(eventScoreArray);
-          console.log(avg);
-          console.log(teleOpAvg);
 
-          avgScoreArray.push(avg);
-          avgTeleOpArray.push(teleOpAvg);
+          var teleOpAvg = teleOpTotal/teleOpArray.length;
+
+          var tr = document.createElement('tr');
+          var teamNames = document.createElement('td');
+          var teamScores = document.createElement('td');
+          var teleOpScores = document.createElement('td');
+
+          tr.classList.toggle('inline-centering');
+
+          table.appendChild(tr);
+          tr.appendChild(teamNames);
+          tr.appendChild(teamScores);
+          tr.appendChild(teleOpScores);
+
+          teamNames.innerHTML = nameArray[p];
+          teamScores.innerHTML = avg;
+          teleOpScores.innerHTML = teleOpAvg;
+
+          // console.log(teleOpArray);
+          // console.log(eventScoreArray);
+          // console.log(avg);
+          // console.log(teleOpAvg);
+          //
+          // avgScoreArray.push(avg);
+          // avgTeleOpArray.push(teleOpAvg);
 
           eventScoreArray = [];
           teamAllianceArray = [];
           teleOpArray = [];
           getKeys();
+          p++
     }
 
 }
@@ -129,6 +145,7 @@ var name;
 var score;
 
 function putItems() {
+
   console.log("Aye aye capn");
     var sortableTable = document.getElementById('.table');
     table = document.getElementById('table-items');
@@ -153,9 +170,10 @@ function putItems() {
         teamNames.innerHTML = name;
         teamScores.innerHTML = score;
         teleOpScores.innerHTML = teleOpScore;
+
         $('.loading').fadeOut(600);
-        $('.sortable').fadeIn(1000);
-  }
+        $('.table').fadeIn(1000);
+  // }
 
 
 

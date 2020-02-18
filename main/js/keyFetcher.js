@@ -55,7 +55,7 @@ eNameRequest.onreadystatechange = function() {
 var strUser;
 // Gets the event the user chose and forwards it to another function
 function sendEvent(){
-    $('.sortable').fadeOut(400);
+    $('.table').fadeOut(400);
     $('.loading').fadeIn(100);
     params.delete('listID');
     // Gets the form from HTML, saves input

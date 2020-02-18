@@ -27,6 +27,8 @@ var avg; //Average value for a given team
 var teleOpTotal;
 var teleOpAvg;
 
+var redScore; //in order to fix to a certain amt of decimals
+
 function reset() {
     index = 0;
     eventScoreArray = [];
@@ -75,6 +77,7 @@ function getTeamScores (tKey, eKey) {
         // console.log(teamScoreRequestObj);
         teamAlliance = "";
         for(matchNum = 0; matchNum < teamScoreRequestObj.length; matchNum++) {
+            
             blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
             for(keyk = 0; keyk < 2; keyk++) {
                 if(tKey == blueKeyArray[keyk]) {
@@ -89,6 +92,7 @@ function getTeamScores (tKey, eKey) {
 
             } else {
                 teamAllianceArray.push("red");
+
                 eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.red.score);
                 teleOpArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
             }
@@ -98,12 +102,12 @@ function getTeamScores (tKey, eKey) {
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
           }
-          var avg = teamTotal/eventScoreArray.length;
+          var avg = (teamTotal/eventScoreArray.length).toFixed(3);
 
           for(var u = 0; u < teleOpArray.length; u++ ){
               teleOpTotal += parseInt(teleOpArray[u], 10 ); //don't forget to add the base
           }
-          var teleOpAvg = teleOpTotal/teleOpArray.length;
+          var teleOpAvg = (teleOpTotal/teleOpArray.length).toFixed(3);
           console.log(teleOpArray);
           console.log(eventScoreArray);
           console.log(avg);

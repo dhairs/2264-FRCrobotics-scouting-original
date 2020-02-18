@@ -197,6 +197,7 @@ img {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 85%;
+  margin-bottom: 4vh;
 }
 
 .table td, .table th {

@@ -28,7 +28,7 @@ function main(){
   $('.instagram').hide();
   $('.youtube').hide();
   $('.github').hide();
-
+  $('.yearsParticipated').hide();
   // $('form').show();
   //
   // $('.massive-container').show();

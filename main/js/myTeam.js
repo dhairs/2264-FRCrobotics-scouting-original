@@ -129,6 +129,7 @@ setTimeout(function() {
         var yearLength = yearsRequestObj.length;
         var lastYear = yearsRequestObj[yearLength-1];
         yearsParticipated.innerHTML = "Competing from " + firstYear + ' - ' + lastYear;
+        $('.yearsParticipated').fadeIn(2000);
         console.log(yearsRequestObj);
     
     }

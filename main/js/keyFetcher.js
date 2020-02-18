@@ -64,7 +64,7 @@ function sendEvent(){
     strUser = e.options[e.selectedIndex].text;
 
 
-    $("#table-items tr").remove(); 
+    $("#table-items tr").remove();
     // document.getElementById("table-items").deleteRow(1);
 
     // Finds the associated Event Key with the Event Num
@@ -101,7 +101,7 @@ function makeRequest(x){
   params.set('eventName', strUser);
   window.history.replaceState({}, '', 'index.html'+'?' + params);
   console.log(params.get('listID'))
-//   makeList(x);
+
   checkParams();
   // var teamRequest = new XMLHttpRequest();
   // teamRequest.open("GET", "https://www.thebluealliance.com/api/v3/event/" + x , true);

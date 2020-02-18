@@ -52,6 +52,11 @@ background: linear-gradient(180deg, rgba(23,174,204,1) 0%, rgba(196,204,21,1) 50
     height: auto;
 }
 
+img:hover{
+    filter: brightness(60%);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 h5 {
     margin-top: 0;
 }
@@ -125,7 +130,8 @@ tr {
 }
 
 .logoPic {
-
+    width: 10vw;
+    height: auto;
 }
 
 /* Everything Forms */
@@ -162,7 +168,7 @@ img {
 .header {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.4);
-  height: 10vh;
+  height: 12vw;
 }
 
 .header a {
@@ -241,7 +247,7 @@ a.normal {
 }
 
 .websiteButton {
-  margin-top: 10vh;
+  margin-top: 10vw;
   background-color: white;  /*Green */
   border: none;
   color: black;
@@ -250,7 +256,7 @@ a.normal {
   text-decoration: none;
   display: inline-block;
   font-size: 2vw;
-  margin-bottom: 10vh;
+  margin-bottom: 10vw;
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -270,6 +276,7 @@ a.normal {
 .yearsParticipated {
     font-family: 'Lato', sans-serif;
     font-weight: bold;
+    font-size: 3vw;
 }
 
 .location {

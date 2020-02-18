@@ -124,7 +124,7 @@ function getTeamScores (tKey, eKey) {
               tOPTotal += parseInt(tOPArray[u], 10 ); //don't forget to add the base
           }
 
-          var tOPAvg = tOPTotal/tOPArray.length;
+          var tOPAvg = (tOPTotal/tOPArray.length).toFixed(2);
 
           var tr = document.createElement('tr');
           var teamNames = document.createElement('td');

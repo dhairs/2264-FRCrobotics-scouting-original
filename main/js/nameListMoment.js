@@ -100,13 +100,13 @@ function getTeamScores (tKey, eKey) {
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
           }
-          var avg = teamTotal/eventScoreArray.length;
+          var avg = (teamTotal/eventScoreArray.length).toFixed(2);
 
           for(var u = 0; u < teleOpArray.length; u++ ){
               teleOpTotal += parseInt(teleOpArray[u], 10 ); //don't forget to add the base
           }
 
-          var teleOpAvg = teleOpTotal/teleOpArray.length;
+          var teleOpAvg = (teleOpTotal/teleOpArray.length).toFixed(2);
 
           var tr = document.createElement('tr');
           var teamNames = document.createElement('td');

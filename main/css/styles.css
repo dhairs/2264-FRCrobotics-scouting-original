@@ -247,7 +247,9 @@ table.sortable thead {
 }
 
 /* More Classes */
-
+.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
+}
 
 .table-container {
     margin-right: auto;

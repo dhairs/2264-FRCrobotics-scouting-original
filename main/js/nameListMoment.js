@@ -142,11 +142,11 @@ function getTeamScores (tKey, eKey) {
           tr.appendChild(autoScores);
           tr.appendChild(tOPScores);
           // console.log("P is" + p);
-          teamNames.innerHTML = teamArray[p];
+          teamNames.innerHTML = teamArray[p] + " - " + teamNumArray[p];
           teamScores.innerHTML = avg;
           autoScores.innerHTML = autoAvg;
           tOPScores.innerHTML = tOPAvg;
-        
+
 
           // console.log(autoArray);
           // console.log(eventScoreArray);

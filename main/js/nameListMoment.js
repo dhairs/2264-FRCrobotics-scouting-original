@@ -130,6 +130,7 @@ var score;
 
 function putItems() {
   console.log("Aye aye capn");
+    var sortableTable = document.getElementById('.table');
     table = document.getElementById('table-items');
     for(p=0; p < avgScoreArray.length; p++) {
       console.log("spicy")

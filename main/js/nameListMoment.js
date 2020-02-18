@@ -25,6 +25,7 @@ var avgtOPArray = [];
 //Reset stuff
 var i;
 var u;
+var mainTable = document.getElementById('table');
 
 var avg; //Average value for a given team
 var autoTotal;
@@ -145,6 +146,7 @@ function getTeamScores (tKey, eKey) {
           teamScores.innerHTML = avg;
           autoScores.innerHTML = autoAvg;
           tOPScores.innerHTML = tOPAvg;
+        
 
           // console.log(autoArray);
           // console.log(eventScoreArray);

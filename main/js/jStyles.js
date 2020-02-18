@@ -20,7 +20,7 @@ function main(){
     $('form').fadeIn(2000);
   }, 300);
   }
-  $('.table').hide();
+  $('.sortable').hide();
   $('.loading').hide();
   $('.teamNumForm').hide();
   $('.twitter').hide();

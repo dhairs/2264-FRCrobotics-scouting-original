@@ -153,7 +153,7 @@ function putItems() {
         teamScores.innerHTML = score;
         teleOpScores.innerHTML = teleOpScore;
         $('.loading').fadeOut(600);
-        $('.table').fadeIn(1000);
+        $('.sortable').fadeIn(1000);
   }
 
 

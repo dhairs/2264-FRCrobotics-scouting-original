@@ -6,7 +6,6 @@
 @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-
 html {
     height: 100%;
 }
@@ -343,6 +342,9 @@ a.normal {
   /* margin-left: 50vw; */
   /* width: device-width; */
 }
+
+
+
 
 /* More Animation Stuff */
 @-webkit-keyframes AnimationName {

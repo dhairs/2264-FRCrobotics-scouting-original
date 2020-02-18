@@ -144,7 +144,6 @@ function putItems() {
         tr.appendChild(teamNames);
         tr.appendChild(teamScores);
         tr.appendChild(teleOpScores);
-
         name = teamArray[p];
         score = avgScoreArray[p];
         teleOpScore = avgTeleOpArray[p];

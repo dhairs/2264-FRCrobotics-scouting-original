@@ -196,4 +196,3 @@ $(document).ready(workCookie());
 $(document).ready(getMyTeamInfo());
 $(document).ready(yearsFunc());
 $(document).ready(retrieveSocialMedia());
-

@@ -8,7 +8,7 @@
 
         <title>Scouting</title>
         <!-- Imports -->
-        <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+        <script src='https://code.jquery.com/jquery-3.3.1.js'></script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
         <script src="js/nameListMoment.js"></script>
         <script src="js/serverStatus.js"></script>
@@ -18,6 +18,9 @@
         <script src="js/myTeam.js"></script>
         <script src="js/scoreFetcher.js"></script>
         <script src="js/testFile.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="js/sorttable.js"></script>
     </head>
 
     <body>
@@ -63,15 +66,15 @@
         </div>
         <div class="" id="myItemTable" class= "table-container">
             <center>
-                <table  class="table">
-                <theader>
+                <table  class="sortable">
+                <thead>
                   <tr class="theader">
                     <td class = "inline-centering"> Team Name </td>
                     <td class = "inline-centering"> AVG  </td>
                     <td class = "inline-centering"> teleOP </td>
 
                   </tr>
-                </theader>
+                </thead>
                 <tbody id = "table-items">
 
 

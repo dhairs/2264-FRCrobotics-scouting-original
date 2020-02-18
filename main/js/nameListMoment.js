@@ -22,6 +22,7 @@ var autoArray = [];
 var tOPArray;
 var avgautoArray = [];
 var avgtOPArray = [];
+var bigbig;
 //Reset stuff
 var i;
 var u;
@@ -132,8 +133,14 @@ function getTeamScores (tKey, eKey) {
           var teamScores = document.createElement('td');
           var autoScores = document.createElement('td');
           var tOPScores = document.createElement('td');
+          // console.log('getMyTeamInfoVar("frc"'  + teamNumArray[p]')');
+          var bigbig = ('getMyTeamInfoVar(\"' + teamNumArray[p] + '\")');
+
+
+
 
           tr.classList.toggle('inline-centering');
+          teamNames.setAttribute("onClick", bigbig);
           var table = document.getElementById('table-items');
 
           table.appendChild(tr);

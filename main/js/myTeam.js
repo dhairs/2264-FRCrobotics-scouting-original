@@ -69,12 +69,12 @@ function getMyTeamInfo(){
 setTimeout(function() {
 //  cookieNumber = "2264";
   var infoRequest = new XMLHttpRequest();
-  
+
   infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber, true);
   infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   infoRequest.send();
-  
-  
+
+
   infoRequest.onreadystatechange = function() {
 
       if (this.readyState == 4 && this.status == 200){
@@ -103,8 +103,8 @@ setTimeout(function() {
 
       }
     }
-  
-  
+
+
 
 
 
@@ -113,17 +113,19 @@ setTimeout(function() {
 
 }
 
+
+
 function yearsFunc(){
 setTimeout(function() {
     yearsRequest = new XMLHttpRequest();
     yearsRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/years_participated", true);
   yearsRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   yearsRequest.send();
-    
+
     yearsRequest.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200){
         yearsRequestObj = JSON.parse(this.responseText);
-        
+
         var yearsParticipated = document.getElementById('yearsParticipated');
         var firstYear = yearsRequestObj[0];
         var yearLength = yearsRequestObj.length;
@@ -131,7 +133,7 @@ setTimeout(function() {
         yearsParticipated.innerHTML = "Competing from " + firstYear + ' - ' + lastYear;
         $('.yearsParticipated').fadeIn(2000);
         console.log(yearsRequestObj);
-    
+
     }
 }
 
@@ -142,12 +144,12 @@ setTimeout(function() {
 
 function retrieveSocialMedia(){
     setTimeout(function (){
-    
+
     socialMediaRequest = new XMLHttpRequest();
     socialMediaRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/social_media", true);
     socialMediaRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
     socialMediaRequest.send();
-    
+
     socialMediaRequest.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200){
         socialMediaRequestObj = JSON.parse(this.responseText);

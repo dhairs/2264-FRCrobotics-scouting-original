@@ -229,12 +229,14 @@ table.sortable thead {
 
 .sortable tr:hover {background-color: #ddd;}
 
+.sortable th:hover {background-color: #ddd;}
+
 .sortable th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
-  color: white;
+  background-color:#eee;
+  color:#666666;
 }
 
 @media screen and (max-width: 500px) {

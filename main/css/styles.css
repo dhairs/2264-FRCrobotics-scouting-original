@@ -219,7 +219,7 @@ table.sortable thead {
 }
 
 .sortable {
-      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 85%;
   margin-bottom: 4vh;
@@ -229,12 +229,14 @@ table.sortable thead {
 
 .sortable tr:hover {background-color: #ddd;}
 
+.sortable th:hover {background-color: #ddd;}
+
 .sortable th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
-  color: white;
+  background-color:#eee;
+  color:#666666;
 }
 
 @media screen and (max-width: 500px) {

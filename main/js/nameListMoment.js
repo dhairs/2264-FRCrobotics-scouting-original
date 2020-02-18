@@ -25,6 +25,7 @@ var avgtOPArray = [];
 //Reset stuff
 var i;
 var u;
+var mainTable = document.getElementById('table');
 
 var avg; //Average value for a given team
 var autoTotal;
@@ -112,19 +113,19 @@ function getTeamScores (tKey, eKey) {
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
           }
-          var avg = teamTotal/eventScoreArray.length;
+          var avg = (teamTotal/eventScoreArray.length).toFixed(2);
 
           for(var u = 0; u < autoArray.length; u++ ){
               autoTotal += parseInt(autoArray[u], 10 ); //don't forget to add the base
           }
 
-          var autoAvg = autoTotal/autoArray.length;
+          var autoAvg = (autoTotal/autoArray.length).toFixed(2);
 
           for(var u = 0; u < tOPArray.length; u++ ){
               tOPTotal += parseInt(tOPArray[u], 10 ); //don't forget to add the base
           }
 
-          var tOPAvg = tOPTotal/tOPArray.length;
+          var tOPAvg = (tOPTotal/tOPArray.length).toFixed(2);
 
           var tr = document.createElement('tr');
           var teamNames = document.createElement('td');
@@ -145,6 +146,7 @@ function getTeamScores (tKey, eKey) {
           teamScores.innerHTML = avg;
           autoScores.innerHTML = autoAvg;
           tOPScores.innerHTML = tOPAvg;
+        
 
           // console.log(autoArray);
           // console.log(eventScoreArray);

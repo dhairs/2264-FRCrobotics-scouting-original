@@ -265,7 +265,8 @@ function getTeamScorez(tKey, eKey) {
           avg = 0;
           autoAvg = 0;
           tOPAvg = 0;
-
+          var elmnt = document.getElementById("table");
+          elmnt.scrollIntoView();
           eventScoreArray = [];
           teamAllianceArray = [];
           autoArray = [];

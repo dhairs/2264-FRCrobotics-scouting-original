@@ -28,10 +28,16 @@ var teamparams = new URLSearchParams(url.search.slice(1));
 
 function getMyTeamInfoVar(teamID){
   teamparams.set('teamID', teamID);
-  window.location.replace('team.html'+'?teamID=' + teamID);
+  window.location.href = 'team.html'+'?teamID=' + teamID;
   console.log(teamparams.get('teamID'))
 
-// setTimeout(function() {
+
+
+}
+
+
+function getTeamInfoVar(teamID){
+    // setTimeout(function() {
 //  teamID = "2264";
   yearsFunc(teamID);
   var subID = teamID;
@@ -71,9 +77,7 @@ function getMyTeamInfoVar(teamID){
 
       }
     // } 100);
-
 }
-
 
 function smallsmall(ID) {
     var teamERequest = new XMLHttpRequest();
@@ -403,12 +407,12 @@ function twitterRedirect(){
 
 function checkParams2(){
   var url = new URL(window.location.href);
-  var listID = url.searchParams.get('listID');
+  var teamIDEpic = url.searchParams.get('teamID');
 
-  if(listID != null){
+  if(teamIDEpic != null){
     $('.loading').fadeIn(600);
     // url.searchParams.get('eventName');
-    getMyTeamInfoVar(listID);
+    getTeamInfoVar(teamIDEpic);
 }
 }
 

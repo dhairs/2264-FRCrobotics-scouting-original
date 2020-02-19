@@ -25,11 +25,6 @@ $("#prospects_form").submit(function(e) {
 
 // Gets Event Names, adds them to the HTML form
 
-function eventGet(){
-    eNameRequest.open('GET', "https://www.thebluealliance.com/api/v3/events/2020", true);
-eNameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-eNameRequest.send();
-
 eNameRequest.onreadystatechange = function() {
     // Gets the form from HTML
     var form = document.getElementById('event-chosen');
@@ -56,7 +51,6 @@ eNameRequest.onreadystatechange = function() {
           }
 
       }
-}
 }
 var strUser;
 // Gets the event the user chose and forwards it to another function
@@ -105,7 +99,7 @@ function makeRequest(x){
   params.delete('listID');
   params.set('listID', x);
   params.set('eventName', strUser);
-  window.location.href = 'index.html'+'?' + params;
+  window.history.replaceState({}, '', 'index.html'+'?' + params);
   console.log(params.get('listID'))
 
   checkParams();
@@ -129,20 +123,15 @@ function makeRequest(x){
   }
 
 
-function eventDelay(){
-    setTimeout(function(){
-        eventGet();       
-    }, 200)
-}
+
 
 
 // XML-HTTP-REQUESTS
 
-
+eNameRequest.open('GET', "https://www.thebluealliance.com/api/v3/events/2020", true);
+eNameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+eNameRequest.send();
 
 eteamRequest.open("GET", "https://www.thebluealliance.com/api/v3/events/2020/keys", true);
 eteamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
 eteamRequest.send();
-
-
-$(document).ready(eventDelay());

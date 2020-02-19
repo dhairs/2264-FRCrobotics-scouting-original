@@ -23,7 +23,14 @@ var ties;
 var winloss;
 var winlossobj;
 
+var url = new URL(window.location.href);
+var teamparams = new URLSearchParams(url.search.slice(1));
+
 function getMyTeamInfoVar(teamID){
+  teamparams.set('teamID', teamID);
+  window.location.replace('team.html'+'?teamID=' + teamID);
+  console.log(teamparams.get('teamID'))
+
 // setTimeout(function() {
 //  teamID = "2264";
   yearsFunc(teamID);
@@ -99,7 +106,9 @@ var awardRequestObj;
 var yearsRequestObj;
 var socialMediaRequest;
 var socialMediaRequestObj;
+
 var z;
+
 var socialMediaRequestTypeObj;
 var facebookIdentifier;
 var instagramIdentifier;
@@ -128,7 +137,7 @@ function createCookie(value) {
 }
 
 function checkCookie(){
-    let key = "teamID=";
+    var key = "teamID=";
             let cookies = document.cookie.split(';');
             for (let i = 0; i < cookies.length; i++) {
                 let cookie = cookies[i];

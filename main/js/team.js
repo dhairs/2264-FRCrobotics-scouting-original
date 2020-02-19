@@ -207,7 +207,18 @@ function getTeamScorez(tKey, eKey) {
                 // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
             }
 
-
+          }
+          // var winloss = new XMLHttpRequest();
+          // winloss.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + tKey + "/event/" + eKey + "/status" , true);
+          // winloss.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+          // winloss.send();
+          //
+          // winloss.onload = function() {
+          //     winlossobj = JSON.parse(this.responseText);
+          //     wins = winlossobj.qual.ranking.record.wins;
+          //     ties = winlossobj.qual.ranking.record.ties;
+          //     losses = winlossobj.qual.ranking.record.losses;
+          // }
 
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
@@ -249,48 +260,6 @@ function getTeamScorez(tKey, eKey) {
           smallsmall(tKey);
 
     }
-
-}
-
-var eventScoresRequest;
-var eventScoresRequestObj;
-var matchScoreArray;
-var winlosetie;
-
-function getMatchScores(eKey) {
-  var eventScoresRequest = new XMLHttpRequest();
-  eventScoresRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + tKey + "/event/" + eKey + "/matches" , true);
-  eventScoresRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-  eventScoresRequest.send();
-  var matchScoreArray = [];
-  var wi
-  eventScoresRequest.onload = function() {
-      eventScoresRequestObj = JSON.parse(this.responseText);
-
-      teamAlliance = "";
-      for(matchNum = 0; matchNum < teamScoreRequestObj.length; matchNum++) {
-          blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
-          for(keyk = 0; keyk < 2; keyk++) {
-              if(tKey == blueKeyArray[keyk]) {
-                  matchScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
-                  // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
-                  // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.teleopPoints);
-              }
-          }
-          //FIX LINE UNDERNEATH!!!!
-          if(teamAlliance == "blue") {
-
-          } else {
-
-              matchScoreArray.push(teamScoreRequestObj[matchNum].alliances.red.score);
-              // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
-              // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
-          }
-
-        }
-
-  }
-
 
 }
 

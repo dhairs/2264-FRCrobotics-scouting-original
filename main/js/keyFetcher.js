@@ -105,7 +105,7 @@ function makeRequest(x){
   params.delete('listID');
   params.set('listID', x);
   params.set('eventName', strUser);
-  window.history.replaceState({}, '', 'index.html'+'?' + params);
+  window.location.href = 'index.html'+'?' + params;
   console.log(params.get('listID'))
 
   checkParams();
@@ -132,7 +132,7 @@ function makeRequest(x){
 function eventDelay(){
     setTimeout(function(){
         eventGet();       
-    }, 1000)
+    }, 200)
 }
 
 

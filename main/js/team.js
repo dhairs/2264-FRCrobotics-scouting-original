@@ -23,8 +23,21 @@ var ties;
 var winloss;
 var winlossobj;
 
+var url = new URL(window.location.href);
+var teamparams = new URLSearchParams(url.search.slice(1));
+
 function getMyTeamInfoVar(teamID){
-// setTimeout(function() {
+  teamparams.set('teamID', teamID);
+  window.location.href = 'team.html'+'?teamID=' + teamID;
+  console.log(teamparams.get('teamID'));
+
+
+
+}
+
+
+function getTeamInfoVar(teamID){
+    // setTimeout(function() {
 //  teamID = "2264";
   yearsFunc(teamID);
   var subID = teamID;
@@ -64,9 +77,7 @@ function getMyTeamInfoVar(teamID){
 
       }
     // } 100);
-
 }
-
 
 function smallsmall(ID) {
     var teamERequest = new XMLHttpRequest();
@@ -85,6 +96,8 @@ function smallsmall(ID) {
       $('.tableItems').show();
       $('.myItemTable').show();
       $('.sortable').show();
+            var myTH = document.getElementsByTagName("th")[0];
+        sorttable.innerSortFunction.apply(myTH, []);
     }
 }
 }
@@ -99,7 +112,9 @@ var awardRequestObj;
 var yearsRequestObj;
 var socialMediaRequest;
 var socialMediaRequestObj;
+
 var z;
+
 var socialMediaRequestTypeObj;
 var facebookIdentifier;
 var instagramIdentifier;
@@ -128,7 +143,7 @@ function createCookie(value) {
 }
 
 function checkCookie(){
-    let key = "teamID=";
+    var key = "teamID=";
             let cookies = document.cookie.split(';');
             for (let i = 0; i < cookies.length; i++) {
                 let cookie = cookies[i];
@@ -425,12 +440,12 @@ function twitterRedirect(){
 
 function checkParams2(){
   var url = new URL(window.location.href);
-  var listID = url.searchParams.get('listID');
+  var teamIDEpic = url.searchParams.get('teamID');
 
-  if(listID != null){
+  if(teamIDEpic != null){
     $('.loading').fadeIn(600);
     // url.searchParams.get('eventName');
-    getMyTeamInfoVar(listID);
+    getTeamInfoVar(teamIDEpic);
 }
 }
 

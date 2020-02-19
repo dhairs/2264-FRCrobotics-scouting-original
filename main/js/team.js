@@ -272,7 +272,7 @@ var eventScoresRequestObj;
 var matchScoreArray;
 var winlosetie;
 
-function getMatchScores(eKey) {
+function getMatchScores(tKey, eKey) {
   var eventScoresRequest = new XMLHttpRequest();
   eventScoresRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + tKey + "/event/" + eKey + "/matches" , true);
   eventScoresRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");

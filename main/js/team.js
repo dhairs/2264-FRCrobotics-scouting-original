@@ -277,6 +277,48 @@ function getTeamScorez(tKey, eKey) {
 
 }
 
+var eventScoresRequest;
+var eventScoresRequestObj;
+var matchScoreArray;
+var winlosetie;
+
+function getMatchScores(tKey, eKey) {
+  var eventScoresRequest = new XMLHttpRequest();
+  eventScoresRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + tKey + "/event/" + eKey + "/matches" , true);
+  eventScoresRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+  eventScoresRequest.send();
+  var matchScoreArray = [];
+  var wi
+  eventScoresRequest.onload = function() {
+      eventScoresRequestObj = JSON.parse(this.responseText);
+
+      teamAlliance = "";
+      for(matchNum = 0; matchNum < eventScoresRequestObj.length; matchNum++) {
+          blueKeyArray = eventScoresRequestObj[matchNum].alliances.blue.team_keys;
+          for(keyk = 0; keyk < 2; keyk++) {
+              if(tKey == blueKeyArray[keyk]) {
+                  matchScoreArray.push(eventScoresRequestObj[matchNum].alliances.blue.score);
+                  // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
+                  // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.teleopPoints);
+              }
+          }
+          //FIX LINE UNDERNEATH!!!!
+          if(teamAlliance == "blue") {
+
+          } else {
+
+              matchScoreArray.push(eventScoresRequestObj[matchNum].alliances.red.score);
+              // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
+              // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
+          }
+
+        }
+
+  }
+
+
+}
+
 
 // function getMyTeamInfo(){
 // setTimeout(function() {

@@ -96,6 +96,8 @@ function smallsmall(ID) {
       $('.tableItems').show();
       $('.myItemTable').show();
       $('.sortable').show();
+            var myTH = document.getElementsByTagName("th")[0];
+        sorttable.innerSortFunction.apply(myTH, []);
     }
 }
 }

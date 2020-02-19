@@ -283,11 +283,11 @@ function getMatchScores(eKey) {
       eventScoresRequestObj = JSON.parse(this.responseText);
 
       teamAlliance = "";
-      for(matchNum = 0; matchNum < teamScoreRequestObj.length; matchNum++) {
-          blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
+      for(matchNum = 0; matchNum < eventScoresRequestObj.length; matchNum++) {
+          blueKeyArray = eventScoresRequestObj[matchNum].alliances.blue.team_keys;
           for(keyk = 0; keyk < 2; keyk++) {
               if(tKey == blueKeyArray[keyk]) {
-                  matchScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
+                  matchScoreArray.push(eventScoresRequestObj[matchNum].alliances.blue.score);
                   // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
                   // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.teleopPoints);
               }
@@ -297,7 +297,7 @@ function getMatchScores(eKey) {
 
           } else {
 
-              matchScoreArray.push(teamScoreRequestObj[matchNum].alliances.red.score);
+              matchScoreArray.push(eventScoresRequestObj[matchNum].alliances.red.score);
               // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
               // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
           }

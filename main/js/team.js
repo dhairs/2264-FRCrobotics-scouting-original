@@ -29,7 +29,7 @@ var teamparams = new URLSearchParams(url.search.slice(1));
 function getMyTeamInfoVar(teamID){
   teamparams.set('teamID', teamID);
   window.location.href = 'team.html'+'?teamID=' + teamID;
-  console.log(teamparams.get('teamID'))
+  console.log(teamparams.get('teamID'));
 
 
 

@@ -15,12 +15,19 @@ var tOPTotal = 0;
 var tOPArray = [];
 var eventScoreArray = [];
 var p;
+var b = 0;
+var subID;
+var wins;
+var losses;
+var ties;
+var winloss;
+var winlossobj;
 
 function getMyTeamInfoVar(teamID){
-setTimeout(function() {
+// setTimeout(function() {
 //  teamID = "2264";
-
-
+  yearsFunc(teamID);
+  var subID = teamID;
   var infoRequest = new XMLHttpRequest();
 
   infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + teamID, true);
@@ -50,28 +57,36 @@ setTimeout(function() {
           $('.nameHeading').fadeIn(1500);
           $('.location').fadeIn(1500);
           $('.teamCountry').fadeIn(1600);
-          var teamERequest = new XMLHttpRequest();
-          teamERequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + teamID + "/events", true);
-          teamERequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-          teamERequest.send();
-          teamERequest.onreadystatechange = function() {
-              teamERequestObj = JSON.parse(this.responseText);
-              for(b = 0; b < teamERequestObj.length; b++){
-                // eKeysRequestObj = ;
-                console.log(teamERequestObj[b].key);
-                getTeamScorez(teamID, teamERequestObj[b].key);
-
+          smallsmall(teamID);
           }
           }
-}
 
 
       }
+    // } 100);
+
+}
+
+
+function smallsmall(ID) {
+    var teamERequest = new XMLHttpRequest();
+    teamERequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + ID + "/events", true);
+    teamERequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+    teamERequest.send();
+    teamERequest.onload = function() {
+        teamERequestObj = JSON.parse(this.responseText);
+        if (b < teamERequestObj.length) {
+          console.log(teamERequestObj[b].key);
+          console.log(ID);
+          getTeamScorez(ID, teamERequestObj[b].key);
+          b++;
+    } else {
+      console.log("done");
+      $('.tableItems').show();
+      $('.myItemTable').show();
+      $('.sortable').show();
     }
-
-
-}, 100);
-
+}
 }
 
 var infoRequest;
@@ -155,6 +170,9 @@ function getTeamScorez(tKey, eKey) {
     teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
     teamScoreRequest.send();
     //Reset the Team Totals and Averages
+    wins = 0;
+    losses = 0
+    ties = 0;
     teamTotal = 0;
     teamAvg = 0;
     teamAllianceArray = [];
@@ -175,8 +193,8 @@ function getTeamScorez(tKey, eKey) {
                 if(tKey == blueKeyArray[keyk]) {
                     teamAllianceArray.push("blue");
                     eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
-                    autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
-                    tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.teleopPoints);
+                    // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
+                    // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.teleopPoints);
                 }
             }
             //FIX LINE UNDERNEATH!!!!
@@ -185,73 +203,62 @@ function getTeamScorez(tKey, eKey) {
             } else {
                 teamAllianceArray.push("red");
                 eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.red.score);
-                autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
-                tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
+                // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
+                // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
             }
 
           }
+          // var winloss = new XMLHttpRequest();
+          // winloss.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + tKey + "/event/" + eKey + "/status" , true);
+          // winloss.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+          // winloss.send();
+          //
+          // winloss.onload = function() {
+          //     winlossobj = JSON.parse(this.responseText);
+          //     wins = winlossobj.qual.ranking.record.wins;
+          //     ties = winlossobj.qual.ranking.record.ties;
+          //     losses = winlossobj.qual.ranking.record.losses;
+          // }
 
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
           }
           var avg = (teamTotal/eventScoreArray.length).toFixed(2);
 
-          for(var u = 0; u < autoArray.length; u++ ){
-              autoTotal += parseInt(autoArray[u], 10 ); //don't forget to add the base
-          }
-
-          var autoAvg = (autoTotal/autoArray.length).toFixed(2);
-
-          for(var u = 0; u < tOPArray.length; u++ ){
-              tOPTotal += parseInt(tOPArray[u], 10 ); //don't forget to add the base
-          }
-
-          var tOPAvg = (tOPTotal/tOPArray.length).toFixed(2);
-
           console.log(avg);
-          console.log(autoAvg);
-          console.log(tOPAvg);
 
-          // var tr = document.createElement('tr');
-          // var teamNames = document.createElement('td');
-          // var teamScores = document.createElement('td');
-          // var autoScores = document.createElement('td');
-          // var tOPScores = document.createElement('td');
-
-          // var bigbig = ('getMyTeamInfoVar(\"' + teamNumArray[p] + '\")');
+          var tr = document.createElement('tr');
+          var teamNames = document.createElement('td');
+          var teamScores = document.createElement('td');
+          // var record = document.createElement('td');
 
 
+          tr.classList.toggle('inline-centering');
+
+          var table = document.getElementById('table-items');
+
+          table.appendChild(tr);
+          tr.appendChild(teamNames);
+          tr.appendChild(teamScores);
+          // tr.appendChild(record);
 
 
-          // tr.classList.toggle('inline-centering');
-          // teamNames.setAttribute("onClick", bigbig);
-          // var table = document.getElementById('table-items');
-
-          // table.appendChild(tr);
-          // tr.appendChild(teamNames);
-          // tr.appendChild(teamScores);
-          // tr.appendChild(autoScores);
-          // tr.appendChild(tOPScores);
-          // console.log("P is" + p);
-          // teamNames.innerHTML = teamArray[p] + " - " + teamNumArray[p];
-          // teamScores.innerHTML = avg;
-          // autoScores.innerHTML = autoAvg;
-          // tOPScores.innerHTML = tOPAvg;
+          teamNames.innerHTML = eKey;
+          teamScores.innerHTML = avg;
+          // record.innerHTML = wins + " - " + losses + " - " + ties;
 
 
-          // console.log(autoArray);
-          // console.log(eventScoreArray);
-          // console.log(avg);
-          // console.log(autoAvg);
-          //
-          // avgScoreArray.push(avg);
-          // avgautoArray.push(autoAvg);
+          avg = 0;
+          autoAvg = 0;
+          tOPAvg = 0;
 
           eventScoreArray = [];
           teamAllianceArray = [];
           autoArray = [];
 
-          p++;
+          b++;
+          smallsmall(tKey);
+
     }
 
 }
@@ -307,10 +314,10 @@ function getTeamScorez(tKey, eKey) {
 
 
 
-function yearsFunc(){
+function yearsFunc(hmm){
 setTimeout(function() {
     yearsRequest = new XMLHttpRequest();
-    yearsRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + cookieNumber + "/years_participated", true);
+    yearsRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + hmm + "/years_participated", true);
   yearsRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   yearsRequest.send();
 
@@ -335,37 +342,37 @@ setTimeout(function() {
 
 
 function retrieveSocialMedia(){
-    setTimeout(function (){
-
-    socialMediaRequest = new XMLHttpRequest();
-    socialMediaRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + teamID + "/social_media", true);
-    socialMediaRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-    socialMediaRequest.send();
-
-    socialMediaRequest.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200){
-        socialMediaRequestObj = JSON.parse(this.responseText);
-            for(z = 0; z < socialMediaRequestObj.length; z++){
-                console.log(socialMediaRequestObj[z].foreign_key);
-                var type = socialMediaRequestObj[z].type;
-                var profile = document.getElementById(type);
-
-                if(type == 'twitter-profile'){
-                    $('.twitter').fadeIn(2000);
-                    twitterIdentifier = socialMediaRequestObj[z].foreign_key;
-                } else if (type == 'facebook-profile'){
-                    $('.facebook').fadeIn(2000);
-                    facebookIdentifier = socialMediaRequestObj[z].foreign_key;
-                } else if(type == 'github-profile'){
-                    $('.github').fadeIn(2000);
-                    githubIdentifier = socialMediaRequestObj[z].foreign_key;
-                }
-//                profile.innerHTML = socialMediaRequestObj[z].foreign_key;
-            }
-    }
-    return(socialMediaRequestObj);
-}
-    }, 1000)
+//     setTimeout(function (){
+//
+//     socialMediaRequest = new XMLHttpRequest();
+//     socialMediaRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + teamID + "/social_media", true);
+//     socialMediaRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+//     socialMediaRequest.send();
+//
+//     socialMediaRequest.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200){
+//         socialMediaRequestObj = JSON.parse(this.responseText);
+//             for(z = 0; z < socialMediaRequestObj.length; z++){
+//                 console.log(socialMediaRequestObj[z].foreign_key);
+//                 var type = socialMediaRequestObj[z].type;
+//                 var profile = document.getElementById(type);
+//
+//                 if(type == 'twitter-profile'){
+//                     $('.twitter').fadeIn(2000);
+//                     twitterIdentifier = socialMediaRequestObj[z].foreign_key;
+//                 } else if (type == 'facebook-profile'){
+//                     $('.facebook').fadeIn(2000);
+//                     facebookIdentifier = socialMediaRequestObj[z].foreign_key;
+//                 } else if(type == 'github-profile'){
+//                     $('.github').fadeIn(2000);
+//                     githubIdentifier = socialMediaRequestObj[z].foreign_key;
+//                 }
+// //                profile.innerHTML = socialMediaRequestObj[z].foreign_key;
+//             }
+//     }
+//     return(socialMediaRequestObj);
+// }
+//     }, 1000)
 }
 
 function redirToWebsite(){
@@ -401,5 +408,5 @@ function checkParams2(){
 $(document).ready(checkCookie());
 $(document).ready(workCookie());
 $(document).ready(checkParams2());
-$(document).ready(yearsFunc());
+// $(document).ready(yearsFunc());
 $(document).ready(retrieveSocialMedia());

@@ -16,7 +16,6 @@ var teamNumArray = [];
 var dummyEventArray = [];
 // var Table = document.getElementById("list-items");
 
-
 // To work on IOS
 $("#prospects_form").submit(function(e) {
     e.preventDefault();
@@ -24,7 +23,12 @@ $("#prospects_form").submit(function(e) {
 
 
 // Gets Event Names, adds them to the HTML form
+function geteName() {
 
+eNameRequest.open('GET', "https://www.thebluealliance.com/api/v3/events/2020", true);
+eNameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
+eNameRequest.send();
+    
 eNameRequest.onreadystatechange = function() {
     // Gets the form from HTML
     var form = document.getElementById('event-chosen');
@@ -51,6 +55,7 @@ eNameRequest.onreadystatechange = function() {
           }
 
       }
+}
 }
 var strUser;
 // Gets the event the user chose and forwards it to another function
@@ -122,16 +127,19 @@ function makeRequest(x){
   //     }
   }
 
-
+function geteNameDelay(){
+    setTimeout(function(){
+        geteName();
+    }, 200);
+}
 
 
 
 // XML-HTTP-REQUESTS
 
-eNameRequest.open('GET', "https://www.thebluealliance.com/api/v3/events/2020", true);
-eNameRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-eNameRequest.send();
 
 eteamRequest.open("GET", "https://www.thebluealliance.com/api/v3/events/2020/keys", true);
 eteamRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
 eteamRequest.send();
+
+$(document).ready(geteNameDelay());

@@ -140,7 +140,7 @@ function getTeamScores (tKey, eKey) {
 
 
           tr.classList.toggle('inline-centering');
-          teamNames.setAttribute("onClick", bigbig);
+          tr.setAttribute("onClick", bigbig);
           var table = document.getElementById('table-items');
 
           table.appendChild(tr);

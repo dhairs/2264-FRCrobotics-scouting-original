@@ -57,14 +57,14 @@ function getKeys() {
   // for(index = 0; index < teamArray.length; index++) {
   if(index < teamArray.length) {
       currentTeam = tKeyArray[index];
-      // console.log(index);
-      // console.log(currentTeam);
-      // console.log(currentEvent);
+      // //console.log(index);
+      // //console.log(currentTeam);
+      // //console.log(currentEvent);
       getTeamScores(currentTeam, currentEvent);
       index++;
     } else {
-      // console.log("done");
-      // console.log(avgScoreArray);
+      // //console.log("done");
+      // //console.log(avgScoreArray);
       putItems();
     }
 // }
@@ -73,7 +73,7 @@ function getKeys() {
 function getTeamScores (tKey, eKey) {
 
     //Open the Request
-    // console.log("running");
+    // //console.log("running");
     var teamScoreRequest = new XMLHttpRequest();
     teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/" + tKey + "/event/" + eKey + "/matches" , true);
     teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -92,7 +92,7 @@ function getTeamScores (tKey, eKey) {
 
     teamScoreRequest.onload = function() {
         teamScoreRequestObj = JSON.parse(this.responseText);
-        // console.log(teamScoreRequestObj);
+        // //console.log(teamScoreRequestObj);
         teamAlliance = "";
         for(matchNum = 0; matchNum < teamScoreRequestObj.length; matchNum++) {
             blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
@@ -120,7 +120,7 @@ function getTeamScores (tKey, eKey) {
 
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
-              console.log(eventScoreArray[i]);
+              //console.log(eventScoreArray[i]);
           }
           var avg = (teamTotal/eventScoreArray.length).toFixed(2);
 
@@ -142,7 +142,7 @@ function getTeamScores (tKey, eKey) {
           var autoScores = document.createElement('td');
           var tOPScores = document.createElement('td');
           // var empty = document.createElement('tr');
-          // console.log('getMyTeamInfoVar("frc"'  + teamNumArray[p]')');
+          // //console.log('getMyTeamInfoVar("frc"'  + teamNumArray[p]')');
           var bigbig = ('getMyTeamInfoVar(\"' + teamNumArray[p] + '\")');
 
 
@@ -158,7 +158,7 @@ function getTeamScores (tKey, eKey) {
           tr.appendChild(teamScores);
           tr.appendChild(autoScores);
           tr.appendChild(tOPScores);
-          // console.log("P is" + p);
+          // //console.log("P is" + p);
           teamNames.innerHTML = teamArray[p] + " - " + teamNumArray[p];
           teamScores.innerHTML = avg;
           autoScores.innerHTML = autoAvg;
@@ -166,10 +166,10 @@ function getTeamScores (tKey, eKey) {
           // empty.innerHTML = "";
 
 
-          // console.log(autoArray);
-          // console.log(eventScoreArray);
-          // console.log(avg);
-          // console.log(autoAvg);
+          // //console.log(autoArray);
+          // //console.log(eventScoreArray);
+          // //console.log(avg);
+          // //console.log(autoAvg);
           //
           // avgScoreArray.push(avg);
           // avgautoArray.push(autoAvg);
@@ -191,10 +191,10 @@ var name;
 var score;
 
 function putItems() {
-  // console.log("Aye aye capn");
+  // //console.log("Aye aye capn");
     // table = document.getElementById('table-items');
     // for(p=0; p < avgScoreArray.length; p++) {
-      // console.log("spicy")
+      // //console.log("spicy")
         // var tr = document.createElement('tr');
         // var teamNames = document.createElement('td');
         // var teamScores = document.createElement('td');

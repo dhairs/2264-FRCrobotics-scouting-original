@@ -28,7 +28,7 @@ var teamparams = new URLSearchParams(url.search.slice(1));
 function getMyTeamInfoVar(teamID){
   teamparams.set('teamID', teamID);
   window.location.href = 'team.html'+'?teamID=' + teamID;
-  console.log(teamparams.get('teamID'));
+  //console.log(teamparams.get('teamID'));
 
 
 
@@ -45,7 +45,7 @@ function getTeamInfoVar(teamID){
   infoRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + teamID, true);
   infoRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
   infoRequest.send();
-  console.log("");
+  //console.log("");
 
   infoRequest.onreadystatechange = function() {
 
@@ -64,7 +64,7 @@ function getTeamInfoVar(teamID){
           titleNameHeading.innerHTML = infoRequestObj.nickname;
           teamLocation.innerHTML = infoRequestObj.city + ', ' + infoRequestObj.state_prov;
           teamCountry.innerHTML = infoRequestObj.country;
-          console.log(infoRequestObj);
+          //console.log(infoRequestObj);
           $('.websiteButton').fadeIn(3000);
           $('.nameHeading').fadeIn(1500);
           $('.location').fadeIn(1500);
@@ -86,11 +86,11 @@ function smallsmall(ID) {
     teamERequest.onload = function() {
     teamERequestObj = JSON.parse(this.responseText);
         if (b < teamERequestObj.length) {
-            console.log(teamERequestObj[b].key);
-            console.log(ID);
+            //console.log(teamERequestObj[b].key);
+            //console.log(ID);
             getTeamScorez(ID, teamERequestObj[b].key);
         } else {
-            console.log("done");
+            //console.log("done");
             $('.tableItems').show();
             $('.myItemTable').show();
             $('.sortable').show();
@@ -135,8 +135,8 @@ date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 30));
 function createCookie(value) {
     var cookie = "teamID=" + value + ";expires=" + date.toGMTString() + ";";
     document.cookie = cookie;
-    console.log(cookie);
-    console.log("Creating new cookie with key: teamID value: " + value);
+    //console.log(cookie);
+    //console.log("Creating new cookie with key: teamID value: " + value);
     window.location.reload();
 }
 
@@ -145,7 +145,7 @@ function checkCookie(){
             let cookies = document.cookie.split(';');
             for (let i = 0; i < cookies.length; i++) {
                 let cookie = cookies[i];
-                console.log(cookie);
+                //console.log(cookie);
                 cookieNumber = cookie.toString().slice(7);
                 while (cookie.charAt(0) === ' ') {
                     cookie = cookie.substring(1, cookie.length);
@@ -177,7 +177,7 @@ function workCookie(){
 function getTeamScorez(tKey, eKey) {
 
     //Open the Request
-    // console.log("running");
+    // //console.log("running");
     var teamScoreRequest = new XMLHttpRequest();
     teamScoreRequest.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + tKey + "/event/" + eKey + "/matches" , true);
     teamScoreRequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
@@ -198,7 +198,7 @@ function getTeamScorez(tKey, eKey) {
 
     teamScoreRequest.onload = function() {
         teamScoreRequestObj = JSON.parse(this.responseText);
-        // console.log(teamScoreRequestObj);
+        // //console.log(teamScoreRequestObj);
         teamAlliance = "";
         for(matchNum = 0; matchNum < teamScoreRequestObj.length; matchNum++) {
             blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
@@ -230,7 +230,7 @@ function getTeamScorez(tKey, eKey) {
           }
           var avg = (teamTotal/eventScoreArray.length).toFixed(2);
 
-          console.log(avg);
+          //console.log(avg);
 
           var tr = document.createElement('tr');
           var teamNames = document.createElement('td');
@@ -338,7 +338,7 @@ function getMatchScores(tKey, eKey) {
 //           titleNameHeading.innerHTML = infoRequestObj.nickname;
 //           teamLocation.innerHTML = infoRequestObj.city + ', ' + infoRequestObj.state_prov;
 //           teamCountry.innerHTML = infoRequestObj.country;
-//           console.log(infoRequestObj);
+//           //console.log(infoRequestObj);
 //           $('.websiteButton').fadeIn(3000);
 //           $('.nameHeading').fadeIn(1500);
 //           $('.location').fadeIn(1500);
@@ -378,7 +378,7 @@ setTimeout(function() {
         var lastYear = yearsRequestObj[yearLength-1];
         yearsParticipated.innerHTML = "Competing from " + firstYear + ' - ' + lastYear;
         $('.yearsParticipated').fadeIn(2000);
-        console.log(yearsRequestObj);
+        //console.log(yearsRequestObj);
 
     }
 }
@@ -400,7 +400,7 @@ function retrieveSocialMedia(){
 //     if (this.readyState == 4 && this.status == 200){
 //         socialMediaRequestObj = JSON.parse(this.responseText);
 //             for(z = 0; z < socialMediaRequestObj.length; z++){
-//                 console.log(socialMediaRequestObj[z].foreign_key);
+//                 //console.log(socialMediaRequestObj[z].foreign_key);
 //                 var type = socialMediaRequestObj[z].type;
 //                 var profile = document.getElementById(type);
 //
@@ -423,7 +423,7 @@ function retrieveSocialMedia(){
 }
 
 function redirToWebsite(){
-    console.log('this is the redirect code')
+    //console.log('this is the redirect code')
     window.open(infoRequestObj.website, 'blank');
 }
 

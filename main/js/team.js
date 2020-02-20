@@ -252,7 +252,6 @@ function getTeamScorez(tKey, eKey) {
           teamScores.innerHTML = avg;
           // record.innerHTML = wins + " - " + losses + " - " + ties;
 
-
           avg = 0;
           autoAvg = 0;
           tOPAvg = 0;

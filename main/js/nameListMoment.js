@@ -137,6 +137,7 @@ function getTeamScores (tKey, eKey) {
           var teamScores = document.createElement('td');
           var autoScores = document.createElement('td');
           var tOPScores = document.createElement('td');
+          // var empty = document.createElement('tr');
           // console.log('getMyTeamInfoVar("frc"'  + teamNumArray[p]')');
           var bigbig = ('getMyTeamInfoVar(\"' + teamNumArray[p] + '\")');
 
@@ -148,6 +149,7 @@ function getTeamScores (tKey, eKey) {
           var table = document.getElementById('table-items');
 
           table.appendChild(tr);
+          // table.appendChild(empty);
           tr.appendChild(teamNames);
           tr.appendChild(teamScores);
           tr.appendChild(autoScores);
@@ -157,6 +159,7 @@ function getTeamScores (tKey, eKey) {
           teamScores.innerHTML = avg;
           autoScores.innerHTML = autoAvg;
           tOPScores.innerHTML = tOPAvg;
+          // empty.innerHTML = "";
 
 
           // console.log(autoArray);
@@ -176,6 +179,8 @@ function getTeamScores (tKey, eKey) {
     }
 
 }
+
+
 
 var table;
 var name;

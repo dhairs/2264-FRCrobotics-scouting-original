@@ -36,6 +36,10 @@ var tOPAvg
 var table = document.getElementById('table-items');
 var p;
 
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+
 function reset() {
     index = 0;
     eventScoreArray = [];

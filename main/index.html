@@ -22,11 +22,13 @@
         <script src="js/jStyles.js"></script>
         <script src="js/myTeam.js"></script>
         <script src="js/scoreFetcher.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
         <script src="js/testFile.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-        
+
         <script>
   (function () {
     var s = document.createElement('script');
@@ -73,12 +75,20 @@
                 <hr>
                </div>
               <!-- Form and Button -->
-            <form onsubmit="return false;">
+              <form onsubmit="return false;">
+                <select class="js-example-basic-single" name="state" id="event-chosen">
+                  <option class="original-option">Choose an Event:</option>
+                </select>
+                </select>
+              </form>
+              <button  class="submit-form" type="submit" onclick="sendEvent()">Submit</button>
+            <!-- <form onsubmit="return false;">
                 <select class="Medium" id="event-chosen">
                     <option class="original-option">Choose an Event:</option>
                   </select>
                 <button  class="submit-form" type="submit" onclick="sendEvent()">Submit</button>
-            </form>
+            </form> -->
+
             <h3 class="event-name" id="event-name"></h3>
               <!-- List -->
           <br>

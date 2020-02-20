@@ -84,6 +84,7 @@ function getTeamScores (tKey, eKey) {
     tOPAvg = 0;
     tOPTotal = 0;
     tOPArray = [];
+    eventScoreArray = [];
 
     teamScoreRequest.onload = function() {
         teamScoreRequestObj = JSON.parse(this.responseText);
@@ -93,6 +94,7 @@ function getTeamScores (tKey, eKey) {
             blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
             for(keyk = 0; keyk < 2; keyk++) {
                 if(tKey == blueKeyArray[keyk]) {
+                  teamAlliance = "blue";
                     teamAllianceArray.push("blue");
                     eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
                     autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
@@ -108,11 +110,13 @@ function getTeamScores (tKey, eKey) {
                 autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
                 tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
             }
+            teamAlliance = "";
 
           }
 
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base
+              console.log(eventScoreArray[i]);
           }
           var avg = (teamTotal/eventScoreArray.length).toFixed(2);
 
@@ -162,12 +166,13 @@ function getTeamScores (tKey, eKey) {
           //
           // avgScoreArray.push(avg);
           // avgautoArray.push(autoAvg);
-
+          //
           eventScoreArray = [];
           teamAllianceArray = [];
           autoArray = [];
-          getKeys();
           p++;
+          getKeys();
+
     }
 
 }

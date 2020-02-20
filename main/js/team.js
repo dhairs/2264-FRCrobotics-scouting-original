@@ -84,20 +84,19 @@ function smallsmall(ID) {
     teamERequest.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
     teamERequest.send();
     teamERequest.onload = function() {
-        teamERequestObj = JSON.parse(this.responseText);
+    teamERequestObj = JSON.parse(this.responseText);
         if (b < teamERequestObj.length) {
-          console.log(teamERequestObj[b].key);
-          console.log(ID);
-          getTeamScorez(ID, teamERequestObj[b].key);
-          b++;
-    } else {
-      console.log("done");
-      $('.tableItems').show();
-      $('.myItemTable').show();
-      $('.sortable').show();
-      var myTH = document.getElementsByTagName("th")[0];
-      sorttable.innerSortFunction.apply(myTH, []);
-    }
+            console.log(teamERequestObj[b].key);
+            console.log(ID);
+            getTeamScorez(ID, teamERequestObj[b].key);
+        } else {
+            console.log("done");
+            $('.tableItems').show();
+            $('.myItemTable').show();
+            $('.sortable').show();
+            var myTH = document.getElementsByTagName("th")[0];
+            sorttable.innerSortFunction.apply(myTH, []);
+        }
 }
 }
 
@@ -205,6 +204,7 @@ function getTeamScorez(tKey, eKey) {
             blueKeyArray = teamScoreRequestObj[matchNum].alliances.blue.team_keys;
             for(keyk = 0; keyk < 2; keyk++) {
                 if(tKey == blueKeyArray[keyk]) {
+                    teamAlliance = "blue";
                     teamAllianceArray.push("blue");
                     eventScoreArray.push(teamScoreRequestObj[matchNum].alliances.blue.score);
                     // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.blue.autoPoints);
@@ -220,19 +220,10 @@ function getTeamScorez(tKey, eKey) {
                 // autoArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.autoPoints);
                 // tOPArray.push(teamScoreRequestObj[matchNum].score_breakdown.red.teleopPoints);
             }
+            teamAlliance = "";
 
           }
-          // var winloss = new XMLHttpRequest();
-          // winloss.open("GET", "https://www.thebluealliance.com/api/v3/team/frc" + tKey + "/event/" + eKey + "/status" , true);
-          // winloss.setRequestHeader("X-TBA-Auth-Key", "lrqZK0XAvSpeHXuWi9vhbmnAbF4ueBRQB3OevJC1pOWIWQdwX1WKRJ4oQceP0ox5");
-          // winloss.send();
-          //
-          // winloss.onload = function() {
-          //     winlossobj = JSON.parse(this.responseText);
-          //     wins = winlossobj.qual.ranking.record.wins;
-          //     ties = winlossobj.qual.ranking.record.ties;
-          //     losses = winlossobj.qual.ranking.record.losses;
-          // }
+
 
           for(var i = 0; i < eventScoreArray.length; i++ ){
               teamTotal += parseInt(eventScoreArray[i], 10 ); //don't forget to add the base

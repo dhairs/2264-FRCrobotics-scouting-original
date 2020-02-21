@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html>
+    
+    
     <head>
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBPlREw7tCXnF6hJadYrTXibMOWKVNNSAw",
+    authDomain: "frc-scouter-2020.firebaseapp.com",
+    databaseURL: "https://frc-scouter-2020.firebaseio.com",
+    projectId: "frc-scouter-2020",
+    storageBucket: "frc-scouter-2020.appspot.com",
+    messagingSenderId: "472907008832",
+    appId: "1:472907008832:web:9247e88a5cd4098afe08a5",
+    measurementId: "G-3RJLZQPD6D"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel='icon' href='favicon.png' type='image'/ >
       <!-- IGNORE ALL FOR FAVICONS -->
